@@ -1,0 +1,278 @@
+// Variables
+$primary-color: #1a237e;
+$secondary-color: #0d47a1;
+$white: #fff;
+$gray-300: #d1d5db;
+$gray-600: #4b5563;
+$gray-800: #1f2937;
+
+// Mixins
+@mixin container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.products-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Navigation
+.navigation {
+  background-color: $white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50;
+
+  .nav-container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+  }
+
+  .nav-logo img {
+    height: 3rem;
+  }
+
+  .nav-links {
+    display: none;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    color: $gray-800;
+    position: relative;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $primary-color;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: $primary-color;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Hero Section
+.hero-section {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: $white;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+
+  .hero-container {
+    @include container;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.2s;
+  }
+}
+
+// Products Section
+.products-section {
+  padding: 4rem 0;
+  flex: 1;
+
+  .products-container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.product-image-container {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.product-content {
+  flex: 1;
+  
+  .product-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  .product-description {
+    color: $gray-600;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .learn-more-btn {
+    background-color: $primary-color;
+    color: $white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $primary-color;
+  color: $white;
+  padding: 3rem 0;
+
+  .footer-container {
+    @include container;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .footer-brand {
+    .footer-logo {
+      height: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-description {
+      color: $gray-300;
+    }
+  }
+
+  .footer-links {
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-menu {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        margin-bottom: 0.5rem;
+        
+        a {
+          color: $gray-300;
+          transition: color 0.3s ease;
+          
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Fade-in animation classes
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
