@@ -1,15 +1,13 @@
-// Variables
 $primary-color: #1a237e;
 $secondary-color: #0d47a1;
 $white: #fff;
 $gray-300: #d1d5db;
 $gray-600: #4b5563;
 
-// Mixins
 @mixin container {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 // Animations
@@ -35,19 +33,20 @@ $gray-600: #4b5563;
   }
 }
 
+// Global Styles
+.container {
+  @include container;
+}
+
 // Hero Section
 .hero-section {
   background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
   color: $white;
-  padding-top: 6rem;
-  padding-bottom: 4rem;
-
-  .hero-container {
-    @include container;
-  }
+  padding: 6rem 0 4rem;
+  text-align: center;
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
     opacity: 0;
@@ -55,25 +54,28 @@ $gray-600: #4b5563;
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.2s;
   }
 }
 
-// Overview Section
-.overview-section {
-  padding: 4rem 0;
+// About Us Section
+.about-us-section {
+  padding: 5rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
 
-  .overview-container {
-    @include container;
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .overview-grid {
+  .about-content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
-    margin-bottom: 4rem;
+    gap: 2rem;
 
     @media (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
@@ -81,191 +83,48 @@ $gray-600: #4b5563;
     }
   }
 
-  .section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: $primary-color;
-    margin-bottom: 1.5rem;
-  }
-
-  .story-paragraph {
-    color: $gray-600;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-
-    &:last-child {
-      margin-bottom: 0;
+  .about-image {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
   }
-}
 
-// Parallax Image
-.parallax {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  .about-text {
+    h2 {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 1.5rem;
+    }
 
-  .parallax-image {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease-out;
+    p {
+      color: $gray-600;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
   }
 }
 
 // Stats Section
+.stats-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
 .stats-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .stat-card {
   background-color: $white;
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: all 0.5s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .counter {
-    font-size: 2rem;
-    font-weight: 700;
-    color: $primary-color;
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-label {
-    color: $gray-600;
-  }
-}
-
-// Team Section
-.team-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: $primary-color;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.team-card {
-  perspective: 1000px;
-  transition: transform 0.6s;
-
-  &:hover {
-    .team-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .team-image {
-      transform: scale(1.1);
-    }
-
-    .social-links {
-      opacity: 1;
-    }
-  }
-}
-
-.team-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.team-card-front,
-.team-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-}
-
-.team-card-front {
-  background-color: $white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-
-  .team-image {
-    width: 12rem;
-    height: 12rem;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    transition: transform 0.5s ease;
-  }
-
-  .team-member-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: $primary-color;
-    margin-bottom: 0.5rem;
-  }
-
-  .team-member-position {
-    color: $gray-600;
-  }
-}
-
-.team-card-back {
-  background: $primary-color;
-  color: $white;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  .team-member-experience {
-    margin: 1rem 0;
-  }
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-
-  .social-link {
-    color: $white;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: $gray-300;
-    }
-  }
-}
-
-// Story Text Animation
-.story-text {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
@@ -274,4 +133,251 @@ $gray-600: #4b5563;
     opacity: 1;
     transform: translateY(0);
   }
+
+  .counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: $gray-600;
+    font-size: 1.1rem;
+  }
 }
+
+// Management Section
+.management-section {
+  padding: 5rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: $primary-color;
+    margin-bottom: 3rem;
+  }
+
+  .management-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .management-card {
+    background-color: $white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .member-image {
+      position: relative;
+      padding-top: 100%;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+
+      h3 {
+        font-size: 1.5rem;
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+      }
+
+      .position {
+        color: $secondary-color;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .experience {
+        color: $gray-600;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .social-link {
+      color: $primary-color;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Association Section
+.association-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: $primary-color;
+    margin-bottom: 3rem;
+  }
+
+  .association-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;}
+
+      .association-text {
+        h3 {
+          font-size: 1.8rem;
+          color: $primary-color;
+          margin-bottom: 1.5rem;
+        }
+  
+        p {
+          color: $gray-600;
+          line-height: 1.7;
+          margin-bottom: 1rem;
+  
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+  
+      .association-images {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+  
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+  
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+  
+        .moil-image {
+          margin-bottom: 1.5rem;
+        }
+  
+        .historical-image {
+          filter: grayscale(100%);
+          transition: filter 0.3s ease;
+  
+          &:hover {
+            filter: grayscale(0%);
+          }
+        }
+      }
+    }
+  }
+  
+  // Fade In Section Animation
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+  
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  // Responsive Adjustments
+  @media (max-width: 768px) {
+    .hero-section {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+  
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+    }
+  
+    .management-section {
+      .management-card {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+  
+    .association-section {
+      .association-content {
+        .association-text {
+          h3 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .management-section {
+      .management-card {
+        .member-info {
+          h3 {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
