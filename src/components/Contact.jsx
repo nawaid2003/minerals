@@ -12,12 +12,10 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Scroll handler for back to top button
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 300);
     };
 
-    // Office cards animation
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -44,7 +42,6 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate form submission
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setFormStatus({
@@ -68,42 +65,13 @@ const Contact = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const offices = [
-    {
-      name: "Australia Office",
-      location: "Perth, WA",
-    },
-    {
-      name: "Europe Office",
-      location: "London, UK",
-    },
-  ];
-
-  const contactInfo = [
-    {
-      icon: "📍",
-      title: "Head Office",
-      content: "123 Mining Avenue\nResource City, RC 12345",
-    },
-    {
-      icon: "📞",
-      title: "Phone",
-      content: "+1 (555) 123-4567",
-    },
-    {
-      icon: "📧",
-      title: "Email",
-      content: "contact@mineraltech.com",
-    },
-  ];
-
   return (
     <div className="contact-page">
       {/* Navigation */}
       <nav className="navigation">
         <div className="nav-container">
           <Link to="/" className="nav-logo">
-            <img src="/api/placeholder/150/50" alt="MineralTech Logo" />
+            <img src="/api/placeholder/150/50" alt="Logo" />
           </Link>
           <div className="nav-links">
             <Link to="/" className="nav-link">
@@ -130,77 +98,88 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Contact Section */}
-      <div className="contact-section">
-        <div className="contact-container">
-          <div className="contact-grid">
-            {/* Contact Form */}
-            <div className="form-container">
-              <h2>Send us a Message</h2>
-              <form onSubmit={handleSubmit}>
-                <div className="form-grid">
-                  <div className="form-group">
-                    <label>First Name *</label>
-                    <input type="text" className="form-input" required />
-                  </div>
-                  <div className="form-group">
-                    <label>Last Name *</label>
-                    <input type="text" className="form-input" required />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label>Email *</label>
-                  <input type="email" className="form-input" required />
-                </div>
-                <div className="form-group">
-                  <label>Message *</label>
-                  <textarea className="form-input" rows="4" required></textarea>
-                </div>
-                {formStatus.show && (
-                  <div className={`message ${formStatus.type} show`}>
-                    {formStatus.message}
-                  </div>
-                )}
-                <button
-                  type="submit"
-                  className={`submit-button ${loading ? "loading" : ""}`}
-                  disabled={loading}
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
+      {/* Contact Details Section */}
+      <section className="contact-details-section">
+        {/* Contact Details Card */}
+        <div className="contact-card">
+          <h2>Contact Details</h2>
+          <div className="contact-info">
+            <h3>Mukund Goenka</h3>
+            <p>mahavirminerals12@gmail.com</p>
+            <p>+91 983 4447 544</p>
+          </div>
 
-            {/* Contact Information */}
-            <div className="info-container">
-              <div className="contact-info">
-                <h2>Contact Information</h2>
-                <div className="info-list">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="info-item">
-                      <div className="contact-icon">{info.icon}</div>
-                      <div>
-                        <h3>{info.title}</h3>
-                        <p>{info.content}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="address-section">
+            <h3>Office Address</h3>
+            <p>
+              63 Shivaji Nagar Plot No 63 Near Lad Square
+              <br />
+              Paonarkhari - Tumsar, Bhandara District -441912
+            </p>
+          </div>
 
-              {/* Global Offices */}
-              <div className="offices-grid">
-                {offices.map((office, index) => (
-                  <div key={index} className="office-card">
-                    <h3>{office.name}</h3>
-                    <p>{office.location}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="address-section">
+            <h3>Factory Address</h3>
+            <p>Paonarkhari - Tumsar, Bhandara District -441912</p>
+          </div>
+
+          <div className="image-grid">
+            <img src="path-to-office-image.jpg" alt="Office" />
+            <img src="path-to-factory-image.jpg" alt="Factory" />
           </div>
         </div>
-      </div>
+
+        {/* Contact Form Card */}
+        <div className="contact-card contact-form">
+          <h2>Send us a Message</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-grid">
+              <div className="form-group">
+                <label>First Name *</label>
+                <input type="text" required />
+              </div>
+              <div className="form-group">
+                <label>Last Name *</label>
+                <input type="text" required />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Company Name</label>
+              <input type="text" />
+            </div>
+
+            <div className="form-group">
+              <label>Email address *</label>
+              <input type="email" required />
+            </div>
+
+            <div className="form-group">
+              <label>Mobile Number *</label>
+              <input type="tel" required />
+            </div>
+
+            <div className="form-group">
+              <label>Comments *</label>
+              <textarea required></textarea>
+            </div>
+
+            {formStatus.show && (
+              <div className={`message ${formStatus.type} show`}>
+                {formStatus.message}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className={`submit-button ${loading ? "loading" : ""}`}
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Submit"}
+            </button>
+          </form>
+        </div>
+      </section>
 
       {/* Back to Top Button */}
       <button
