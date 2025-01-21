@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/About.scss";
+import Header from "./Header";
 
 const LinkedInIcon = () => (
   <svg
@@ -142,6 +143,7 @@ const About = () => {
 
   return (
     <div className="about-page">
+      <Header /> {/* Add the Header component */}
       {/* Hero Section */}
       <div className="hero-section">
         <div className="hero-container">
@@ -151,7 +153,6 @@ const About = () => {
           </p>
         </div>
       </div>
-
       {/* About Us Section */}
       <div className="about-us-section fade-in-section">
         <div className="container">
@@ -181,7 +182,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
       {/* Stats Section */}
       <div className="stats-section">
         <div className="container">
@@ -202,7 +202,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
       {/* Management Section */}
       <div className="management-section fade-in-section">
         <div className="container">
@@ -235,7 +234,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
       {/* Association Section */}
       <div className="association-section fade-in-section">
         <div className="container">

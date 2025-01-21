@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Products from "./components/Products";
 import Contact from "./components/Contact";
+import FAQ from "./components/Faq";
 import "./styles/styles.scss";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
         <Footer />
       </div>
