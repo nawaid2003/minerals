@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.png";
 
 const Footer = () => {
   return (
@@ -7,11 +8,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-logo-section">
-            <img
-              src="/api/placeholder/150/50"
-              alt="Mahavir Minerals Logo"
-              className="footer-logo"
-            />
+            <img src={logo} alt="Logo" className="footer-logo" />
             <p className="footer-tagline">
               Leading the future of sustainable mineral resources
             </p>

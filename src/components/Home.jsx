@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import MnO from "../images/mn02.png";
+import MnO2 from "../images/mndioxide.png";
+import FeedGrade from "../images/feedgrademno.png";
 
 const Home = () => {
   const observerRef = useRef(null);
@@ -54,17 +57,17 @@ const Home = () => {
   const products = [
     {
       title: "Manganese Oxide Powder",
-      image: "/api/placeholder/300/300",
+      image: MnO,
       link: "/products#oxide-powder",
     },
     {
       title: "Manganese Dioxide",
-      image: "/api/placeholder/300/300",
+      image: MnO2,
       link: "/products#dioxide",
     },
     {
       title: "Manganese Oxide Feed Grade",
-      image: "/api/placeholder/300/300",
+      image: FeedGrade,
       link: "/products#feed-grade",
     },
   ];

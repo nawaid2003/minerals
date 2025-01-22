@@ -2,6 +2,11 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Products.scss";
 import Header from "./Header";
+import MnO from "../images/mn02.png";
+import MnO2 from "../images/mndioxide.png";
+import FeedGrade from "../images/feedgrademno.png";
+import Ore from "../images/MnOre.png";
+import Media from "../images/MediaMn.png";
 
 const Products = () => {
   useEffect(() => {
@@ -33,35 +38,43 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      title: "MANGANESE OXIDE FEED GRADE",
+      title: "MANGANESE OXIDE POWDER",
       description:
         "Manganese Oxide (Feed Grade) is used as a trace mineral in Animal Feed & is also used as a fertilizer in the Agriculture Industry.",
-      image: "/api/placeholder/300/300",
+      image: MnO,
       order: "normal",
     },
     {
       id: 2,
-      title: "MANGANESE OXIDE CHEMICAL GRADE",
+      title: "MANGANESE DIOXIDE",
       description:
         "Manganese Oxide (Chemical Grade) is used as a raw material for manufacturing Manganese salts such as Manganese Carbonate and Manganese Sulphate.",
-      image: "/api/placeholder/300/300",
+      image: MnO2,
       order: "reverse",
     },
     {
       id: 3,
-      title: "MANGANESE DIOXIDE",
+      title: "MANGANESE OXIDE FEED GRADE",
       description:
         "High-quality Manganese Dioxide for various industrial applications including battery manufacturing and chemical processes.",
-      image: "/api/placeholder/300/300",
+      image: FeedGrade,
       order: "normal",
     },
     {
       id: 4,
-      title: "MANGANESE SULPHATE",
+      title: "MANGANESE ORE FINES",
       description:
         "Premium Manganese Sulphate for agricultural and industrial uses, ensuring optimal mineral supplementation.",
-      image: "/api/placeholder/300/300",
+      image: Ore,
       order: "reverse",
+    },
+    {
+      id: 5,
+      title: "FILTER MEDIA MnO₂",
+      description:
+        "High-quality Manganese Dioxide for various industrial applications including battery manufacturing and chemical processes.",
+      image: Media,
+      order: "normal",
     },
   ];
 

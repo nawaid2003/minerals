@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.scss";
+import logo from "../images/logo.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,11 +19,7 @@ const Header = () => {
       <div className="nav-container">
         <div className="nav-content">
           <Link to="/" className="logo-container">
-            <img
-              src="/api/placeholder/150/50"
-              alt="Logo"
-              className="logo-image"
-            />
+            <img src={logo} alt="Logo" className="logo-image" />
           </Link>
           <div className="desktop-menu">
             <Link to="/" className="nav-link">
