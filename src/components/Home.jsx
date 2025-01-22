@@ -1,8 +1,42 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import MnO from "../images/mn02.png";
 import MnO2 from "../images/mndioxide.png";
 import FeedGrade from "../images/feedgrademno.png";
+import Facility from "../images/m3.jpg";
+import Ore from "../images/MnOre.png";
+import Media from "../images/MediaMn.png";
+import m1 from "../images/m1.jpg";
+import m2 from "../images/m2.jpg";
+import m3 from "../images/m3.jpg";
+import m4 from "../images/m4.jpg";
+import "../styles/Home.scss";
+
+const ParallaxBackground = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [m1, m2, m3, m4];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="parallax-container">
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`parallax-image ${index === currentImage ? "active" : ""}`}
+          style={{ backgroundImage: `url(${img})` }}
+        />
+      ))}
+      <div className="overlay" />
+    </div>
+  );
+};
 
 const Home = () => {
   const observerRef = useRef(null);
@@ -70,17 +104,27 @@ const Home = () => {
       image: FeedGrade,
       link: "/products#feed-grade",
     },
+    {
+      title: "MANGANESE ORE FINES",
+      image: Ore,
+      link: "/products#ore-fines",
+    },
+    {
+      title: "FILTER MEDIA MnO₂",
+      image: Media,
+      link: "/products#filter-media",
+    },
   ];
 
   return (
     <div className="home">
-      {/* Hero Section */}
       <div className="hero-section">
+        <ParallaxBackground />
         <div className="hero-container">
           <div className="hero-grid">
             <div className="hero-content">
               <h1 className="hero-title">
-                Leading the Future of Mineral Resources
+                The Trusted Pioneers of Manganese Excellence
               </h1>
               <p className="hero-text">
                 Sustainable mining solutions for a better tomorrow
@@ -89,18 +133,10 @@ const Home = () => {
                 Learn More
               </Link>
             </div>
-            <div className="hero-image-container">
-              <img
-                src="/api/placeholder/600/400"
-                alt="Mining Operation"
-                className="hero-image"
-              />
-            </div>
           </div>
         </div>
       </div>
 
-      {/* About Section */}
       <div className="about-section">
         <div className="about-container">
           <div className="about-grid">
@@ -123,7 +159,7 @@ const Home = () => {
             </div>
             <div className="about-image-container fade-in-section">
               <img
-                src="/api/placeholder/500/300"
+                src={Facility}
                 alt="Mining Facility"
                 className="about-image"
               />
@@ -132,7 +168,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Products Section */}
       <div className="products-section">
         <div className="products-container">
           <h2 className="section-title text-center">Our Products</h2>
@@ -161,7 +196,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Sustainability Section */}
       <div className="sustainability-section">
         <div className="sustainability-container">
           <div className="sustainability-grid">
@@ -194,7 +228,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Stats Section */}
       <div className="highlights-section">
         <div className="highlights-container">
           <h2 className="highlights-title">Why Choose Mahavir Minerals?</h2>
