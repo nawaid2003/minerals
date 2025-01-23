@@ -11,6 +11,7 @@ import m2 from "../images/m2.jpg";
 import m3 from "../images/m3.jpg";
 import m4 from "../images/m4.jpg";
 import "../styles/Home.scss";
+import Sustain from "../images/sustain.png";
 
 const ParallaxBackground = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -201,7 +202,7 @@ const Home = () => {
           <div className="sustainability-grid">
             <div className="sustainability-image-container fade-in-section">
               <img
-                src="/api/placeholder/500/300"
+                src={Sustain}
                 alt="Sustainability Initiative"
                 className="sustainability-image"
               />
