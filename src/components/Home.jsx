@@ -134,9 +134,6 @@ const Home = () => {
               <h1 className="hero-title">
                 The Trusted Pioneers of Manganese Excellence
               </h1>
-              <p className="hero-text">
-                Sustainable mining solutions for a better tomorrow
-              </p>
               <button onClick={handleLearnMoreScroll} className="hero-button">
                 Learn More
               </button>

@@ -1,0 +1,204 @@
+// Variables
+$primary-color: #001f3f;
+$white: #fff;
+$gray-600: #4b5563;
+
+.sustainability-page {
+  .sustainability-hero {
+    background-color: $primary-color;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+
+    .sustainability-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  .sustainability-section {
+    padding: 5rem 0;
+    background-color: #fff;
+    
+    .sustainability-container {
+      max-width: 90rem;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+
+    .sustainability-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+      
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .sustainability-image-container {
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      
+      img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.5s ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .sustainability-content {
+      .section-title {
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
+
+      .sustainability-text {
+        color: $gray-600;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  // Rest of the styles remain the same as in the previous version
+  .sustainability-initiatives {
+    padding: 5rem 0;
+    background-color: #f9fafb;
+
+    .initiatives-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .initiatives-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .initiative-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        color: $gray-600;
+      }
+    }
+  }
+
+  // Fade-in animation
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: $primary-color;
+    position: relative;
+    
+    &.text-center {
+      text-align: center;
+    }
+  }
+}
+
+.sustainability-commitment {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f9fafb 0%, #fff 100%);
+    
+    .commitment-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+  
+    .section-title {
+      position: relative;
+      margin-bottom: 2rem;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4rem;
+        height: 0.25rem;
+        background-color: $primary-color;
+      }
+    }
+  
+    .commitment-text {
+      color: $gray-600;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+  
+      &::before,
+      &::after {
+        content: '"';
+        color: $primary-color;
+        font-size: 3rem;
+        position: absolute;
+        opacity: 0.3;
+      }
+  
+      &::before {
+        top: -1rem;
+        left: -1rem;
+      }
+  
+      &::after {
+        bottom: -2rem;
+        right: -1rem;
+      }
+    }
+  }
