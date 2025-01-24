@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { motion } from "framer-motion";
 import "../styles/Products.scss";
 import Header from "./Header";
 import MnO from "../images/mn02.png";
@@ -8,33 +8,94 @@ import FeedGrade from "../images/feedgrademno.png";
 import Ore from "../images/MnOre.png";
 import Media from "../images/MediaMn.png";
 
+const ProductCard = ({ product }) => {
+  return (
+    <motion.div
+      className={`product-card ${product.order === "reverse" ? "reverse" : ""}`}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.6,
+          ease: "easeOut",
+        },
+      }}
+      viewport={{ once: true }}
+      whileHover={{
+        scale: 1.02,
+        transition: { duration: 0.3 },
+      }}
+    >
+      <motion.div
+        className="product-image-container"
+        initial={{ scale: 0.9, opacity: 0 }}
+        whileInView={{
+          scale: 1,
+          opacity: 1,
+          transition: {
+            duration: 0.6,
+            delay: 0.2,
+            ease: "easeOut",
+          },
+        }}
+        viewport={{ once: true }}
+      >
+        <img
+          src={product.image}
+          alt={product.title}
+          className="product-image"
+        />
+      </motion.div>
+      <div className="product-content">
+        <motion.h2
+          className="product-title"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 0.5,
+              delay: 0.3,
+              ease: "easeOut",
+            },
+          }}
+          viewport={{ once: true }}
+        >
+          {product.title}
+        </motion.h2>
+        <motion.p
+          className="product-description"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 0.5,
+              delay: 0.4,
+              ease: "easeOut",
+            },
+          }}
+          viewport={{ once: true }}
+        >
+          {product.description}
+        </motion.p>
+        <motion.button
+          className="learn-more-btn"
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: 0.2 },
+          }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Learn More
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+};
+
 const Products = () => {
-  useEffect(() => {
-    // Initial animations
-    const fadeElements = document.querySelectorAll(".fade-in");
-    fadeElements.forEach((element) => {
-      element.classList.add("visible");
-    });
-
-    // Product cards scroll animation
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll(".product-card").forEach((card) => {
-      observer.observe(card);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const products = [
     {
       id: 1,
@@ -79,46 +140,50 @@ const Products = () => {
   ];
 
   return (
-    <div className="products-page">
+    <motion.div
+      className="products-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Header />
 
       {/* Hero Section */}
-      <div className="hero-section">
+      <motion.div
+        className="hero-section"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="hero-container">
-          <h1 className="hero-title fade-in">Our Products</h1>
-          <p className="hero-subtitle fade-in">
+          <motion.h1
+            className="hero-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Our Products
+          </motion.h1>
+          <motion.p
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             Premium Quality Mineral Solutions
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Products Grid */}
       <div className="products-section">
         <div className="products-container">
           {products.map((product) => (
-            <div
-              key={product.id}
-              className={`product-card ${
-                product.order === "reverse" ? "reverse" : ""
-              }`}
-            >
-              <div className="product-image-container">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="product-image"
-                />
-              </div>
-              <div className="product-content">
-                <h2 className="product-title">{product.title}</h2>
-                <p className="product-description">{product.description}</p>
-                <button className="learn-more-btn">Learn More</button>
-              </div>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

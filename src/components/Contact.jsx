@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import "../styles/Contact.scss";
+import Office from "../images/office.jpg";
+import Factory from "../images/m3.jpg";
 
 const Contact = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -103,8 +105,8 @@ const Contact = () => {
           </div>
 
           <div className="image-grid">
-            <img src="/api/placeholder/400/300" alt="Office" />
-            <img src="/api/placeholder/400/300" alt="Factory" />
+            <img src={Office} alt="Office" />
+            <img src={Factory} alt="Factory" />
           </div>
         </div>
 

@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/About.scss";
 import Header from "./Header";
+import Facility from "../images/m5.jpg";
+import Moil from "../images/moil.png";
+import History from "../images/history.png";
 
 const LinkedInIcon = () => (
   <svg
@@ -158,10 +161,7 @@ const About = () => {
         <div className="container">
           <div className="about-content">
             <div className="about-image">
-              <img
-                src="/api/placeholder/600/400"
-                alt="Mahavir Minerals Facility"
-              />
+              <img src={Facility} alt="Mahavir Minerals Facility" />
             </div>
             <div className="about-text">
               <h2>About Us</h2>
@@ -256,13 +256,9 @@ const About = () => {
               </p>
             </div>
             <div className="association-images">
+              <img src={Moil} alt="MOIL Facility" className="moil-image" />
               <img
-                src="/api/placeholder/600/400"
-                alt="MOIL Facility"
-                className="moil-image"
-              />
-              <img
-                src="/api/placeholder/600/400"
+                src={History}
                 alt="Historical Photo"
                 className="historical-image"
               />

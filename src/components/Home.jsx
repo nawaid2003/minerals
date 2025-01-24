@@ -41,6 +41,7 @@ const ParallaxBackground = () => {
 
 const Home = () => {
   const observerRef = useRef(null);
+  const aboutSectionRef = useRef(null);
 
   const animateNumber = (element) => {
     if (element.classList.contains("animated")) return;
@@ -89,6 +90,12 @@ const Home = () => {
     };
   }, []);
 
+  const handleLearnMoreScroll = () => {
+    if (aboutSectionRef.current) {
+      aboutSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const products = [
     {
       title: "Manganese Oxide Powder",
@@ -130,15 +137,15 @@ const Home = () => {
               <p className="hero-text">
                 Sustainable mining solutions for a better tomorrow
               </p>
-              <Link to="/about" className="hero-button">
+              <button onClick={handleLearnMoreScroll} className="hero-button">
                 Learn More
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="about-section">
+      <div ref={aboutSectionRef} className="about-section">
         <div className="about-container">
           <div className="about-grid">
             <div className="about-content fade-in-section">
