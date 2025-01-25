@@ -7,6 +7,7 @@ import MnO2 from "../images/mndioxide.png";
 import FeedGrade from "../images/feedgrademno.png";
 import Ore from "../images/MnOre.png";
 import Media from "../images/MediaMn.png";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
@@ -80,16 +81,18 @@ const ProductCard = ({ product }) => {
         >
           {product.description}
         </motion.p>
-        <motion.button
-          className="learn-more-btn"
-          whileHover={{
-            scale: 1.05,
-            transition: { duration: 0.2 },
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Learn More
-        </motion.button>
+        <Link to={product.link || "#"}>
+          <motion.button
+            className="learn-more-btn"
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Learn More
+          </motion.button>
+        </Link>
       </div>
     </motion.div>
   );
@@ -104,6 +107,7 @@ const Products = () => {
         "Manganese Oxide (Feed Grade) is used as a trace mineral in Animal Feed & is also used as a fertilizer in the Agriculture Industry.",
       image: MnO,
       order: "normal",
+      link: "/ManganeseOxidePowder",
     },
     {
       id: 2,
@@ -112,6 +116,7 @@ const Products = () => {
         "Manganese Oxide (Chemical Grade) is used as a raw material for manufacturing Manganese salts such as Manganese Carbonate and Manganese Sulphate.",
       image: MnO2,
       order: "reverse",
+      link: "/MangneseDioxide",
     },
     {
       id: 3,
@@ -120,6 +125,7 @@ const Products = () => {
         "High-quality Manganese Dioxide for various industrial applications including battery manufacturing and chemical processes.",
       image: FeedGrade,
       order: "normal",
+      link: "/ManganeseOxideFeedGrade",
     },
     {
       id: 4,
@@ -128,6 +134,7 @@ const Products = () => {
         "Premium Manganese Sulphate for agricultural and industrial uses, ensuring optimal mineral supplementation.",
       image: Ore,
       order: "reverse",
+      link: "/ManganeseOreFines",
     },
     {
       id: 5,
@@ -136,6 +143,7 @@ const Products = () => {
         "High-quality Manganese Dioxide for various industrial applications including battery manufacturing and chemical processes.",
       image: Media,
       order: "normal",
+      link: "/MnO2FilterMedia",
     },
   ];
 

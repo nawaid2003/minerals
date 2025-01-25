@@ -10,6 +10,11 @@ import FAQ from "./components/Faq";
 import Sustainability from "./components/Sustainability";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsAndConditions from "./components/Terms";
+import ManganeseOreFines from "./components/ManganeseOreFines";
+import ManganeseOxideFeedGrade from "./components/ManganeseOxideFeedGrade";
+import ManganeseOxidePowder from "./components/ManganeseOxidePowder";
+import MangneseDioxide from "./components/MangneseDioxide";
+import MnO2FilterMedia from "./components/MnO2FilterMedia";
 import "./styles/styles.scss";
 
 const App = () => {
@@ -26,6 +31,17 @@ const App = () => {
           <Route path="/sustainability" element={<Sustainability />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/ManganeseOreFines" element={<ManganeseOreFines />} />
+          <Route
+            path="/ManganeseOxideFeedGrade"
+            element={<ManganeseOxideFeedGrade />}
+          />
+          <Route
+            path="/ManganeseOxidePowder"
+            element={<ManganeseOxidePowder />}
+          />
+          <Route path="/MangneseDioxide" element={<MangneseDioxide />} />
+          <Route path="/MnO2FilterMedia" element={<MnO2FilterMedia />} />
         </Routes>
         <Footer />
       </div>

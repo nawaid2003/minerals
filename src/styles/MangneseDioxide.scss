@@ -1,0 +1,55 @@
+.manganese-dioxide {
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #001f3f;
+      color: #fff;
+      padding: 4rem 2rem;
+  
+      img {
+        max-width: 400px;
+        margin-right: 2rem;
+      }
+  
+      .hero-content {
+        flex: 1;
+  
+        h1 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+  
+        p {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  
+    .specifications-section {
+      padding: 4rem 2rem;
+  
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+  
+      .specifications-table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th, td {
+          padding: 1rem;
+          border-bottom: 1px solid #ccc;
+        }
+  
+        th {
+          text-align: left;
+          background-color: #001f3f;
+          color: #fff;
+        }
+      }
+    }
+  }
