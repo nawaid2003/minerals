@@ -1,295 +1,210 @@
-@import './Header.scss';
-
-
 // Variables
 $primary-color: #001f3f;
-$secondary-color: #001f3f;
+$secondary-color: #003366;
+$accent-color: #0066cc;
 $white: #fff;
-$gray-300: #d1d5db;
-$gray-600: #4b5563;
-$gray-800: #1f2937;
+$gray-100: #f7fafc;
+$gray-200: #edf2f7;
+$gray-300: #e2e8f0;
+$gray-600: #4a5568;
+$gray-800: #2d3748;
 
 // Mixins
-@mixin container {
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 0 1rem;
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// Animations
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+@mixin hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
 }
 
 .products-page {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, $gray-100 0%, $white 100%);
 }
 
-// Navigation
-.navigation {
-  background-color: $white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 50;
-
-  .nav-container {
-    @include container;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 4rem;
-  }
-
-  .nav-logo img {
-    height: 3rem;
-  }
-
-  .nav-links {
-    display: none;
-    gap: 2rem;
-
-    @media (min-width: 768px) {
-      display: flex;
-    }
-  }
-
-  .nav-link {
-    color: $gray-800;
-    position: relative;
-    transition: color 0.3s ease;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: $primary-color;
-      transition: width 0.3s ease;
-    }
-
-    &:hover {
-      color: $primary-color;
-
-      &::after {
-        width: 100%;
-      }
-    }
-  }
-}
-
-// Hero Section
 .hero-section {
   background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
-  color: $white;
-  padding-top: 8rem;
-  padding-bottom: 4rem;
+  padding: 8rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
 
   .hero-container {
-    @include container;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
 
   .hero-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: $white;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards 0.2s;
+    font-size: 1.5rem;
+    color: rgba($white, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 
-// Products Section
 .products-section {
-  padding: 4rem 0;
-  flex: 1;
+  padding: 6rem 0;
 
   .products-container {
-    @include container;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 6rem;
   }
 }
 
 .product-card {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.5s ease;
-  animation: scaleIn 0.6s ease-out forwards;
+  gap: 4rem;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 20px;
+  background: $white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  @include hover-lift;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-    &.reverse {
-      flex-direction: row-reverse;
+  &.reverse {
+    flex-direction: row-reverse;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
     }
-  }
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 }
 
 .product-image-container {
+  flex: 0 0 400px;
+  height: 400px;
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 10px;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex: 0 0 300px;
+    height: 300px;
+    width: 100%;
+  }
 
   .product-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s ease;
+  }
 
-    &:hover {
-      transform: scale(1.1);
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($primary-color, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .overlay-content {
+      color: $white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      @include glass-effect;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+    }
+  }
+
+  &:hover {
+    .image-overlay {
+      opacity: 1;
     }
   }
 }
 
 .product-content {
   flex: 1;
-  
+
   .product-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: $primary-color;
+    color: $gray-800;
     margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 60px;
+      height: 3px;
+      background: $accent-color;
+      border-radius: 2px;
+    }
   }
 
   .product-description {
     color: $gray-600;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
   }
 
   .learn-more-btn {
-    background-color: $primary-color;
+    background: $primary-color;
     color: $white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.3s ease;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+
+    .btn-arrow {
+      transition: transform 0.3s ease;
+    }
 
     &:hover {
-      background-color: $secondary-color;
-    }
-  }
-}
-
-// Footer
-.footer {
-  background-color: $primary-color;
-  color: $white;
-  padding: 3rem 0;
-
-  .footer-container {
-    @include container;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .footer-brand {
-    .footer-logo {
-      height: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .footer-description {
-      color: $gray-300;
-    }
-  }
-
-  .footer-links {
-    .footer-title {
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .footer-menu {
-      list-style: none;
-      padding: 0;
-      
-      li {
-        margin-bottom: 0.5rem;
-        
-        a {
-          color: $gray-300;
-          transition: color 0.3s ease;
-          
-          &:hover {
-            color: $white;
-          }
-        }
+      .btn-arrow {
+        transform: translateX(5px);
       }
     }
-  }
-}
-
-// Fade-in animation classes
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

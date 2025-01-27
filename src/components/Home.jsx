@@ -12,6 +12,7 @@ import m3 from "../images/m3.jpg";
 import m4 from "../images/m4.jpg";
 import "../styles/Home.scss";
 import Sustain from "../images/sustain.png";
+import { motion } from "framer-motion";
 
 const ParallaxBackground = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -96,7 +97,7 @@ const Home = () => {
     }
   };
 
-  const products = [
+  const productscase = [
     {
       title: "Manganese Oxide Powder",
       image: MnO,
@@ -173,31 +174,67 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="products-section">
-        <div className="products-container">
-          <h2 className="section-title text-center">Our Products</h2>
-          <div className="products-grid">
-            {products.map((product, index) => (
-              <div key={index} className="product-card fade-in-section">
-                <div className="product-image-container">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="product-image"
-                  />
+      <div className="productscase-section">
+        <div className="productscase-container">
+          <motion.h2
+            className="section-title text-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Products
+          </motion.h2>
+
+          <motion.div
+            className="productscase-grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {productscase.map((product, index) => (
+              <motion.div
+                key={index}
+                className="productscase-card"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <div className="productscase-image-wrapper">
+                  <div className="productscase-image-container">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="productscase-image"
+                    />
+                  </div>
+                  <div className="productscase-overlay">
+                    <Link to={product.link} className="learn-more-button">
+                      Explore Product
+                    </Link>
+                  </div>
                 </div>
-                <h3 className="product-title">{product.title}</h3>
-                <Link to={product.link} className="learn-more-button">
-                  Learn More
-                </Link>
-              </div>
+                <div className="productscase-content">
+                  <h3 className="productscase-title">{product.title}</h3>
+                  <div className="productscase-description">
+                    Premium quality manganese products for industrial
+                    applications
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </div>
-          <div className="text-center mt-8">
+          </motion.div>
+
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
             <Link to="/products" className="view-all-button">
               View All Products
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
 

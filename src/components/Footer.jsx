@@ -55,8 +55,6 @@ const Footer = () => {
             </motion.h4>
             <motion.ul className="footer-links-list" variants={itemVariants}>
               {[
-                { to: "/", text: "Home" },
-                { to: "/about", text: "About" },
                 { to: "/contact", text: "Contact" },
                 { to: "/faq", text: "FAQ" },
                 { to: "/sustainability", text: "Sustainability" },
