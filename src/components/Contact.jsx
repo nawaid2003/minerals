@@ -161,14 +161,6 @@ const Contact = () => {
           </form>
         </div>
       </section>
-
-      {/* Back to Top Button */}
-      <button
-        className={`back-to-top ${showBackToTop ? "visible" : ""}`}
-        onClick={scrollToTop}
-      >
-        ↑
-      </button>
     </div>
   );
 };

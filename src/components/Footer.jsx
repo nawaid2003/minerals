@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { LinkedinIcon, TwitterIcon, FacebookIcon } from "lucide-react";
-import logo from "../images/logo.png";
+import { LinkedinIcon, MessageSquare, MapPin, Mail, Phone } from "lucide-react";
+import "../styles/styles.scss";
 
 const footerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -38,32 +38,29 @@ const Footer = () => {
         <motion.div className="footer-grid" variants={footerVariants}>
           <motion.div className="footer-logo-section" variants={itemVariants}>
             <motion.img
-              src={logo}
+              src="/logo.png"
               alt="Logo"
               className="footer-logo"
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
-            <motion.p className="footer-tagline" variants={itemVariants}>
+            <motion.p className="footer-tagline">
               Leading the future of sustainable mineral resources
             </motion.p>
           </motion.div>
 
-          <motion.div className="footer-links-section" variants={itemVariants}>
-            <motion.h4 className="footer-heading" variants={itemVariants}>
-              Quick Links
-            </motion.h4>
-            <motion.ul className="footer-links-list" variants={itemVariants}>
+          <motion.div variants={itemVariants}>
+            <motion.h4 className="footer-heading">Quick Links</motion.h4>
+            <motion.div className="footer-links-list">
               {[
                 { to: "/contact", text: "Contact" },
                 { to: "/faq", text: "FAQ" },
                 { to: "/sustainability", text: "Sustainability" },
                 { to: "/terms", text: "Terms & Condition" },
                 { to: "/privacy", text: "Privacy Policy" },
-              ].map((link, index) => (
-                <motion.li
+              ].map((link) => (
+                <motion.div
                   key={link.to}
-                  variants={itemVariants}
                   whileHover={{
                     x: 10,
                     transition: { type: "spring", stiffness: 300 },
@@ -72,75 +69,55 @@ const Footer = () => {
                   <Link to={link.to} className="footer-link">
                     {link.text}
                   </Link>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
-
-          <motion.div className="footer-social-section" variants={itemVariants}>
-            <motion.h4 className="footer-heading" variants={itemVariants}>
-              Connect With Us
-            </motion.h4>
-            <motion.div className="social-links" variants={itemVariants}>
-              {[
-                { Icon: LinkedinIcon, href: "#linkedin", name: "LinkedIn" },
-                { Icon: TwitterIcon, href: "#twitter", name: "Twitter" },
-                { Icon: FacebookIcon, href: "#facebook", name: "Facebook" },
-              ].map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  className="social-link"
-                  whileHover={{
-                    scale: 1.2,
-                    rotate: [0, -10, 10, -10, 0],
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  <social.Icon className="social-icon" />
-                  <span>{social.name}</span>
-                </motion.a>
+                </motion.div>
               ))}
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className="footer-contact-section"
-            variants={itemVariants}
-          >
-            <motion.h4 className="footer-heading" variants={itemVariants}>
-              Contact Info
-            </motion.h4>
-            <motion.p
-              className="contact-info"
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                transition: { type: "spring", stiffness: 300 },
-              }}
-            >
-              Paonarkhari - Tumsar, Bhandara District - 441912 India
-            </motion.p>
-            <motion.p
-              className="contact-info"
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                transition: { type: "spring", stiffness: 300 },
-              }}
-            >
-              mahavirminerals12@gmail.com
-            </motion.p>
-            <motion.p
-              className="contact-info"
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                transition: { type: "spring", stiffness: 300 },
-              }}
-            >
-              +91 983 4447 544
-            </motion.p>
+          <motion.div variants={itemVariants}>
+            <motion.h4 className="footer-heading">Connect With Us</motion.h4>
+            <motion.div className="social-links">
+              <motion.a
+                href="https://www.linkedin.com/company/mahavirminerals/"
+                className="social-link"
+                whileHover={{
+                  scale: 1.2,
+                  rotate: [0, -10, 10, -10, 0],
+                }}
+              >
+                <LinkedinIcon />
+              </motion.a>
+              <motion.a
+                href="#whatsapp"
+                className="social-link"
+                whileHover={{
+                  scale: 1.2,
+                  rotate: [0, -10, 10, -10, 0],
+                }}
+              >
+                <MessageSquare />
+              </motion.a>
+            </motion.div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <motion.h4 className="footer-heading">Contact Info</motion.h4>
+            <motion.div>
+              <motion.div className="contact-info" whileHover={{ scale: 1.05 }}>
+                <MapPin className="icon" />
+                <span>
+                  Paonarkhari - Tumsar, Bhandara District - 441912 India
+                </span>
+              </motion.div>
+              <motion.div className="contact-info" whileHover={{ scale: 1.05 }}>
+                <Mail className="icon" />
+                <span>mahavirminerals12@gmail.com</span>
+              </motion.div>
+              <motion.div className="contact-info" whileHover={{ scale: 1.05 }}>
+                <Phone className="icon" />
+                <span>+91 983 4447 544</span>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
