@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { LinkedinIcon, MessageSquare, MapPin, Mail, Phone } from "lucide-react";
+import { LinkedinIcon, MapPin, Mail, Phone } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import "../styles/styles.scss";
+
+library.add(faWhatsapp);
 
 const footerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -26,6 +31,17 @@ const itemVariants = {
 };
 
 const Footer = () => {
+  const address = "Paonarkhari - Tumsar, Bhandara District - 441912 India";
+  const email = "mahavirminerals12@gmail.com";
+  const phone = "919834447544"; // Removed spaces for proper tel: link
+
+  // Function to encode address for Google Maps
+  const getGoogleMapsLink = () => {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      address
+    )}`;
+  };
+
   return (
     <motion.footer
       className="footer"
@@ -80,43 +96,63 @@ const Footer = () => {
               <motion.a
                 href="https://www.linkedin.com/company/mahavirminerals/"
                 className="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{
                   scale: 1.2,
                   rotate: [0, -10, 10, -10, 0],
                 }}
               >
-                <LinkedinIcon />
+                <LinkedinIcon size={24} />
               </motion.a>
               <motion.a
-                href="#whatsapp"
-                className="social-link"
+                href={`https://wa.me/${phone}`}
+                className="social-link whatsapp-link"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{
                   scale: 1.2,
                   rotate: [0, -10, 10, -10, 0],
                 }}
               >
-                <MessageSquare />
+                <FontAwesomeIcon icon={faWhatsapp} size="xl" />
               </motion.a>
             </motion.div>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <motion.h4 className="footer-heading">Contact Info</motion.h4>
-            <motion.div>
-              <motion.div className="contact-info" whileHover={{ scale: 1.05 }}>
-                <MapPin className="icon" />
-                <span>
-                  Paonarkhari - Tumsar, Bhandara District - 441912 India
+            <motion.div className="contact-info-container">
+              <motion.a
+                href={getGoogleMapsLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-info-item"
+                whileHover={{ scale: 1.05 }}
+              >
+                <MapPin className="contact-icon" />
+                <span className="contact-text">{address}</span>
+              </motion.a>
+
+              <motion.a
+                href={`mailto:${email}`}
+                className="contact-info-item"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Mail className="contact-icon" />
+                <span className="contact-text">{email}</span>
+              </motion.a>
+
+              <motion.a
+                href={`tel:${phone}`}
+                className="contact-info-item"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Phone className="contact-icon" />
+                <span className="contact-text">
+                  {phone.replace(/(\d{2})(\d{4})(\d{4})/, "+$1 $2 $3")}
                 </span>
-              </motion.div>
-              <motion.div className="contact-info" whileHover={{ scale: 1.05 }}>
-                <Mail className="icon" />
-                <span>mahavirminerals12@gmail.com</span>
-              </motion.div>
-              <motion.div className="contact-info" whileHover={{ scale: 1.05 }}>
-                <Phone className="icon" />
-                <span>+91 983 4447 544</span>
-              </motion.div>
+              </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>
