@@ -29,6 +29,7 @@ $gray-700: #374151;
   
     .nav-container {
       width: 100%;
+      position: relative;
   
       .nav-content {
         display: flex;
@@ -110,30 +111,59 @@ $gray-700: #374151;
     display: none;
     flex-direction: column;
     background-color: $white;
+    position: fixed; // Changed from default
+    top: 4rem; // Match header height
+    left: 0;
+    right: 0;
+    z-index: 49; // Just below header
     padding: 1rem;
-    border-top: 1px solid $gray-300;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 4rem); // Account for header height
+    overflow-y: auto; // Add scroll if needed
 
-    &.show {
-      display: flex;
-      transform: translateY(0);
+  // Update animation
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  &.show {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-link {
+    color: $gray-600;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem; // Increased padding
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid $gray-300;
+
+    &:last-child {
+      border-bottom: none;
     }
 
-    .mobile-link {
-      color: $gray-600;
-      text-decoration: none;
-      padding: 0.75rem 0;
-      font-weight: 500;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: $primary-color;
-      }
+    &:hover {
+      color: $primary-color;
+      background-color: $gray-100;
     }
+  }
+
 
     @media (min-width: 768px) {
       display: none;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-menu {
+    display: none !important;
+  }
+  
+  .mobile-menu-button-container {
+    margin-left: 300px; // Push hamburger to right
+    padding-right: 1rem;
   }
 }
