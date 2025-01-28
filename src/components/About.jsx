@@ -5,6 +5,7 @@ import Header from "./Header";
 import Facility from "../images/m5.jpg";
 import Moil from "../images/moil.png";
 import History from "../images/history.png";
+import Sustain from "../images/sustain.png";
 
 const LinkedInIcon = () => (
   <svg
@@ -262,6 +263,37 @@ const About = () => {
                 alt="Historical Photo"
                 className="historical-image"
               />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="sustainability-section">
+        <div className="sustainability-container">
+          <div className="sustainability-grid">
+            <div className="sustainability-image-container fade-in-section">
+              <img
+                src={Sustain}
+                alt="Sustainability Initiative"
+                className="sustainability-image"
+              />
+            </div>
+            <div className="sustainability-content fade-in-section">
+              <h2 className="section-title">Environment & Sustainability</h2>
+              <p className="sustainability-text">
+                Despite the inherent challenges in manganese production, Mahavir
+                Minerals prioritizes environmental responsibility. Situated
+                strategically away from residential areas, our factory minimizes
+                disturbance to nearby communities.
+              </p>
+              <p className="sustainability-text">
+                A strong emphasis on regular machinery maintenance underscores
+                our commitment to preventing air or sound pollution, reflecting
+                our dedication to sustainable and eco-friendly practices in
+                every facet of our operations.
+              </p>
+              <Link to="/sustainability" className="learn-more-button">
+                Learn More
+              </Link>
             </div>
           </div>
         </div>
