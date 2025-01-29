@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MnO from "../images/mn02.png";
 import MnO2 from "../images/mndioxide.png";
 import FeedGrade from "../images/feedgrademno.png";
-import Facility from "../images/m3.jpg";
+import Facility from "../images/m1.jpg";
 import Ore from "../images/MnOre.png";
 import Media from "../images/MediaMn.png";
 import m1 from "../images/m1.jpg";

@@ -102,127 +102,128 @@ const Contact = () => {
           <p>We're here to help with your mineral needs</p>
         </div>
       </div>
+      <section className="content-section">
+        <section className="contact-details-section">
+          <div className="contact-card">
+            <h2 className="section-title">
+              <Building2 className="icon" />
+              Contact Details
+            </h2>
 
-      <section className="contact-details-section">
-        <div className="contact-card">
-          <h2 className="section-title">
-            <Building2 className="icon" />
-            Contact Details
-          </h2>
-
-          <div className="contact-info">
-            <div className="info-item">
-              <User className="icon" />
-              <div>
-                <h3>Mukund Goenka</h3>
-                <p>Contact Person</p>
+            <div className="contact-info">
+              <div className="info-item">
+                <User className="icon" />
+                <div>
+                  <h3>Mukund Goenka</h3>
+                  <p>Contact Person</p>
+                </div>
+              </div>
+              <div className="info-item">
+                <Mail className="icon" />
+                <div>
+                  <h3>Email</h3>
+                  <p>mahavirminerals12@gmail.com</p>
+                </div>
+              </div>
+              <div className="info-item">
+                <Phone className="icon" />
+                <div>
+                  <h3>Phone</h3>
+                  <p>+91 983 4447 544</p>
+                </div>
               </div>
             </div>
-            <div className="info-item">
-              <Mail className="icon" />
-              <div>
-                <h3>Email</h3>
-                <p>mahavirminerals12@gmail.com</p>
+
+            <div className="address-section">
+              <div className="address-header">
+                <Building className="icon" />
+                <h3>Office Address</h3>
+              </div>
+              <div className="address-content">
+                <div className="address-line">
+                  <MapPin className="icon" />
+                  <p>63 Shivaji Nagar Plot No 63 Near Lad Square</p>
+                </div>
+                <div className="address-line">
+                  <MapPin className="icon" />
+                  <p>Paonarkhari - Tumsar, Bhandara District -441912</p>
+                </div>
               </div>
             </div>
-            <div className="info-item">
-              <Phone className="icon" />
-              <div>
-                <h3>Phone</h3>
-                <p>+91 983 4447 544</p>
+
+            <div className="address-section">
+              <div className="address-header">
+                <Factory className="icon" />
+                <h3>Factory Address</h3>
+              </div>
+              <div className="address-content">
+                <div className="address-line">
+                  <MapPin className="icon" />
+                  <p>Paonarkhari - Tumsar, Bhandara District -441912</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="image-grid">
+              <div className="image-container">
+                <img src={Office} alt="Office" />
+              </div>
+              <div className="image-container">
+                <img src={FactoryPic} alt="Factory" />
               </div>
             </div>
           </div>
 
-          <div className="address-section">
-            <div className="address-header">
-              <Building className="icon" />
-              <h3>Office Address</h3>
-            </div>
-            <div className="address-content">
-              <div className="address-line">
-                <MapPin className="icon" />
-                <p>63 Shivaji Nagar Plot No 63 Near Lad Square</p>
+          <div className="contact-card contact-form">
+            <h2>Send us a Message</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-grid">
+                <div className="form-group">
+                  <label>First Name *</label>
+                  <input type="text" name="first_name" required />
+                </div>
+                <div className="form-group">
+                  <label>Last Name *</label>
+                  <input type="text" name="last_name" required />
+                </div>
               </div>
-              <div className="address-line">
-                <MapPin className="icon" />
-                <p>Paonarkhari - Tumsar, Bhandara District -441912</p>
-              </div>
-            </div>
-          </div>
 
-          <div className="address-section">
-            <div className="address-header">
-              <Factory className="icon" />
-              <h3>Factory Address</h3>
-            </div>
-            <div className="address-content">
-              <div className="address-line">
-                <MapPin className="icon" />
-                <p>Paonarkhari - Tumsar, Bhandara District -441912</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="image-grid">
-            <div className="image-container">
-              <img src={Office} alt="Office" />
-            </div>
-            <div className="image-container">
-              <img src={FactoryPic} alt="Factory" />
-            </div>
-          </div>
-        </div>
-
-        <div className="contact-card contact-form">
-          <h2>Send us a Message</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-grid">
               <div className="form-group">
-                <label>First Name *</label>
-                <input type="text" name="first_name" required />
+                <label>Company Name</label>
+                <input type="text" name="company_name" />
               </div>
+
               <div className="form-group">
-                <label>Last Name *</label>
-                <input type="text" name="last_name" required />
+                <label>Email address *</label>
+                <input type="email" name="email" required />
               </div>
-            </div>
 
-            <div className="form-group">
-              <label>Company Name</label>
-              <input type="text" name="company_name" />
-            </div>
-
-            <div className="form-group">
-              <label>Email address *</label>
-              <input type="email" name="email" required />
-            </div>
-
-            <div className="form-group">
-              <label>Mobile Number *</label>
-              <input type="tel" name="mobile" required />
-            </div>
-
-            <div className="form-group">
-              <label>Comments *</label>
-              <textarea name="comments" required></textarea>
-            </div>
-
-            {formStatus.show && (
-              <div className={`message ${formStatus.type} show`}>
-                {formStatus.message}
+              <div className="form-group">
+                <label>Mobile Number *</label>
+                <input type="tel" name="mobile" required />
               </div>
-            )}
 
-            <button
-              type="submit"
-              className={`submit-button ${loading ? "loading" : ""}`}
-              disabled={loading}
-            >
-              {loading ? "Sending..." : "Submit"}
-            </button>
-          </form>
-        </div>
+              <div className="form-group">
+                <label>Comments *</label>
+                <textarea name="comments" required></textarea>
+              </div>
+
+              {formStatus.show && (
+                <div className={`message ${formStatus.type} show`}>
+                  {formStatus.message}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className={`submit-button ${loading ? "loading" : ""}`}
+                disabled={loading}
+              >
+                {loading ? "Sending..." : "Submit"}
+              </button>
+            </form>
+          </div>
+        </section>
       </section>
     </div>
   );

@@ -207,11 +207,13 @@ const Products = () => {
       </motion.div>
 
       <div className="products-section">
-        <div className="products-container">
-          {products.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
-          ))}
-        </div>
+        <section className="content-section">
+          <div className="products-container">
+            {products.map((product, index) => (
+              <ProductCard key={product.id} product={product} index={index} />
+            ))}
+          </div>
+        </section>
       </div>
     </motion.div>
   );

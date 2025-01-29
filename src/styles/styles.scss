@@ -7,7 +7,47 @@ $gray-600: #4b5563;
 $primary-color: #001f3f;
 $white: #fff;
 $gray-300: #a0aec0;
-$background-color: #5b574c; 
+$cream-darker: #E6D5B8;
+$cream-dark: #E6CCB2;
+$cream-medium: #DBC1AC;
+$background-base: #c98d6f;
+
+// Background Pattern Mixin
+@mixin content-background {
+  background-color: $background-base;
+  background-image: 
+    linear-gradient(30deg, $cream-darker 12%, transparent 12.5%, transparent 87%, $cream-darker 87.5%, $cream-darker),
+    linear-gradient(150deg, $cream-darker 12%, transparent 12.5%, transparent 87%, $cream-darker 87.5%, $cream-darker),
+    linear-gradient(30deg, $cream-darker 12%, transparent 12.5%, transparent 87%, $cream-darker 87.5%, $cream-darker),
+    linear-gradient(150deg, $cream-darker 12%, transparent 12.5%, transparent 87%, $cream-darker 87.5%, $cream-darker),
+    linear-gradient(60deg, rgba($cream-dark, 0.5) 25%, transparent 25.5%, transparent 75%, rgba($cream-dark, 0.5) 75%, rgba($cream-dark, 0.5)),
+    linear-gradient(60deg, rgba($cream-dark, 0.5) 25%, transparent 25.5%, transparent 75%, rgba($cream-dark, 0.5) 75%, rgba($cream-dark, 0.5));
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+.main-content {
+  @include content-background;
+  position: relative;
+  padding: 2rem 0;
+  min-height: calc(100vh - 64px - 400px); // Adjust based on your header and footer heights
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba($cream-darker, 0.9) 0%,
+      rgba($cream-dark, 0.85) 50%,
+      rgba($cream-medium, 0.8) 100%
+    );
+    z-index: 0;
+  }
+}
 
 // Mixins
 @mixin flex-center {
@@ -18,21 +58,6 @@ $background-color: #5b574c;
 @mixin container {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-// Apply to entire website
-body {
-  background-color: $background-color;
-  color: #333; // Ensures readability
-  font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-// Optional: Add a slight gradient for elegance
-html {
-  background: linear-gradient(to bottom, #FFFDF6, $background-color);
 }
 
 // Animations
@@ -501,14 +526,33 @@ button {
   height: 1.5rem;
 }
 
-// Enhanced sections styles
 .about-section,
-.sustainability-section {
-  .sustainability-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.sustainability-section,
+.productscase-section {
+  background-color: rgba($white, 0.1);
+  backdrop-filter: blur(5px);
+  position: relative;
+  margin: 2rem 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba($cream-darker, 0.2),
+      rgba($cream-dark, 0.3)
+    );
+    z-index: 0;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+
     img {
       max-width: 100%;
       max-height: 400px;
@@ -844,4 +888,11 @@ button {
       transform: scale(1.05);
     }
   }
+}
+
+.hero-section {
+  background: $primary-color;
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
 }

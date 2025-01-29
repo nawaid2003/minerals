@@ -119,49 +119,53 @@ const About = () => {
 
       {/* Company Overview Section */}
       <div className="company-overview">
-        <div className="container-wrapper">
-          <div className="overview-grid">
-            <div className="overview-media">
-              <img src={Facility} alt="Mahavir Minerals Facility" />
-            </div>
-            <div className="overview-content">
-              <h2>About Us</h2>
-              <p>
-                Mahavir Minerals, located in Paonarkhari, Bhandara district,
-                just 4 kilometers from the esteemed Dongri Buzurg Mine operated
-                by MOIL. Established on 28/11/1994, we take pride in being
-                pioneers in manganese oxide production.
-              </p>
-              <p>
-                Over the years, Mahavir Minerals has consistently delivered
-                quality manganese oxide and now aspires to become a
-                manufacturing powerhouse for various manganese-based compounds.
-                Our strategic vision involves expanding our product portfolio to
-                include a range of manganese compounds.
-              </p>
+        <section className="content-section">
+          <div className="container-wrapper">
+            <div className="overview-grid">
+              <div className="overview-media">
+                <img src={Facility} alt="Mahavir Minerals Facility" />
+              </div>
+              <div className="overview-content">
+                <h2>About Us</h2>
+                <p>
+                  Mahavir Minerals, located in Paonarkhari, Bhandara district,
+                  just 4 kilometers from the esteemed Dongri Buzurg Mine
+                  operated by MOIL. Established on 28/11/1994, we take pride in
+                  being pioneers in manganese oxide production.
+                </p>
+                <p>
+                  Over the years, Mahavir Minerals has consistently delivered
+                  quality manganese oxide and now aspires to become a
+                  manufacturing powerhouse for various manganese-based
+                  compounds. Our strategic vision involves expanding our product
+                  portfolio to include a range of manganese compounds.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
       {/* Achievements Section */}
       <div className="achievements-showcase">
-        <div className="container-wrapper">
-          <div className="achievements-grid">
-            {[
-              { value: 30, label: "Years Experience" },
-              { value: 500, label: "Projects Completed" },
-              { value: 50, label: "Countries Served" },
-            ].map((stat, index) => (
-              <div key={index} className="achievement-card">
-                <div className="achievement-number" data-target={stat.value}>
-                  0
+        <section className="content-section">
+          <div className="container-wrapper">
+            <div className="achievements-grid">
+              {[
+                { value: 30, label: "Years Experience" },
+                { value: 500, label: "Projects Completed" },
+                { value: 50, label: "Countries Served" },
+              ].map((stat, index) => (
+                <div key={index} className="achievement-card">
+                  <div className="achievement-number" data-target={stat.value}>
+                    0
+                  </div>
+                  <div className="achievement-label">{stat.label}</div>
                 </div>
-                <div className="achievement-label">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       </div>
 
       {/* Leadership Section */}
