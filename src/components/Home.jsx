@@ -303,7 +303,7 @@ const Home = () => {
           <h2 className="highlights-title">Why Choose Mahavir Minerals?</h2>
           <div className="stats-grid">
             <div className="stat-card">
-              <div className="stat-number" data-target="25">
+              <div className="stat-number" data-target="30">
                 0+
               </div>
               <h3 className="stat-title">Years Experience</h3>

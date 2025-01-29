@@ -7,6 +7,7 @@ $gray-600: #4b5563;
 $primary-color: #001f3f;
 $white: #fff;
 $gray-300: #a0aec0;
+$background-color: #5b574c; 
 
 // Mixins
 @mixin flex-center {
@@ -18,6 +19,20 @@ $gray-300: #a0aec0;
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+// Apply to entire website
+body {
+  background-color: $background-color;
+  color: #333; // Ensures readability
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+// Optional: Add a slight gradient for elegance
+html {
+  background: linear-gradient(to bottom, #FFFDF6, $background-color);
 }
 
 // Animations

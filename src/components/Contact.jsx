@@ -12,7 +12,7 @@ import {
 import Header from "./Header";
 import "../styles/Contact.scss";
 import Office from "../images/office.jpg";
-import FactoryPic from "../images/m3.jpg";
+import FactoryPic from "../images/m1.jpg";
 
 const Contact = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
