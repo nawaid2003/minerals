@@ -1,44 +1,75 @@
 // Variables
 $primary-color: #001f3f;
+$secondary-color: #2ecc71;
 $white: #fff;
 $gray-600: #4b5563;
 
 .sustainability-page {
   .sustainability-hero {
-    background-color: $primary-color;
+    background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
     color: white;
     text-align: center;
-    padding: 6rem 1rem;
+    padding: 8rem 1rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
 
     .sustainability-hero-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
 
       h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
 
       p {
-        font-size: 1.25rem;
-        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
       }
+    }
+
+    .hero-decoration {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
     }
   }
 
   .sustainability-section {
-    padding: 5rem 0;
+    padding: 8rem 0;
     background-color: #fff;
     
     .sustainability-container {
       max-width: 90rem;
       margin: 0 auto;
-      padding: 4rem 1rem;
+      padding: 0 2rem;
     }
 
     .sustainability-grid {
       display: grid;
-      gap: 3rem;
+      gap: 4rem;
       align-items: center;
       
       @media (min-width: 768px) {
@@ -47,50 +78,64 @@ $gray-600: #4b5563;
     }
 
     .sustainability-image-container {
+      position: relative;
+      border-radius: 1rem;
       overflow: hidden;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba($primary-color, 0.2), rgba($secondary-color, 0.2));
+        z-index: 1;
+      }
       
       img {
         width: 100%;
         height: auto;
-        transition: transform 0.5s ease;
-        
-        &:hover {
-          transform: scale(1.05);
-        }
+        display: block;
+        transform: scale(1.01);
       }
     }
 
     .sustainability-content {
       .section-title {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         color: $primary-color;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center; // Center the title
       }
 
       .sustainability-text {
         color: $gray-600;
         margin-bottom: 1.5rem;
-        line-height: 1.7;
+        line-height: 1.8;
+        font-size: 1.125rem;
+        text-align: center; // Center the text
       }
     }
   }
 
-  // Rest of the styles remain the same as in the previous version
   .sustainability-initiatives {
-    padding: 5rem 0;
-    background-color: #f9fafb;
+    padding: 8rem 0;
+    background: linear-gradient(135deg, #f9fafb 0%, #fff 100%);
 
     .initiatives-container {
       max-width: 80rem;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 2rem;
+      text-align: center; // Center the text in the container
     }
 
     .initiatives-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
+      margin-top: 4rem;
 
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -99,106 +144,102 @@ $gray-600: #4b5563;
 
     .initiative-card {
       background-color: white;
-      padding: 2rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
 
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      .card-decoration {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, $primary-color, $secondary-color);
       }
 
       h3 {
         color: $primary-color;
         margin-bottom: 1rem;
         font-size: 1.5rem;
+        font-weight: 600;
+        position: relative;
+        text-align: center; // Center the title
       }
 
       p {
         color: $gray-600;
+        line-height: 1.7;
+        text-align: center; // Center the text
       }
     }
   }
 
-  // Fade-in animation
-  .fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .section-title {
-    font-size: 2.25rem;
-    font-weight: bold;
-    color: $primary-color;
-    position: relative;
-    
-    &.text-center {
-      text-align: center;
-    }
-  }
-}
-
-.sustainability-commitment {
-    padding: 5rem 0;
+  .sustainability-commitment {
+    padding: 8rem 0;
     background: linear-gradient(135deg, #f9fafb 0%, #fff 100%);
     
     .commitment-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 1rem;
-      text-align: center;
+      padding: 0 2rem;
+      text-align: right ; // Align text to the left
+      margin-left: 20%; // Shift text to the right by 20%
     }
   
     .section-title {
+      margin-bottom: 3rem;
       position: relative;
-      margin-bottom: 2rem;
+      text-align: left; // Align text to the left
+      margin-left: 25%; // Shift text to the right by 20%
       
       &::after {
         content: '';
         position: absolute;
-        bottom: -0.5rem;
+        bottom: -1rem;
         left: 50%;
         transform: translateX(-50%);
-        width: 4rem;
+        width: 6rem;
         height: 0.25rem;
-        background-color: $primary-color;
+        background: linear-gradient(90deg, $primary-color, $secondary-color);
+        border-radius: 2px;
       }
     }
   
     .commitment-text {
       color: $gray-600;
       font-size: 1.25rem;
-      line-height: 1.8;
+      line-height: 2;
       max-width: 700px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 2rem;
       position: relative;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: left; // Align text to the left
+      margin-left: 20%; // Shift text to the right by 20%
   
       &::before,
       &::after {
         content: '"';
-        color: $primary-color;
-        font-size: 3rem;
+        color: $secondary-color;
+        font-size: 4rem;
         position: absolute;
-        opacity: 0.3;
+        opacity: 0.2;
+        font-family: Georgia, serif;
       }
   
       &::before {
-        top: -1rem;
-        left: -1rem;
+        top: 0;
+        left: 1rem;
       }
   
       &::after {
-        bottom: -2rem;
-        right: -1rem;
+        bottom: -1rem;
+        right: 1rem;
       }
     }
   }
+}

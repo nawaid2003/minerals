@@ -1,55 +1,108 @@
-import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useRef } from "react";
 import Sustain from "../images/sustain.png";
 import "../styles/Sustainability.scss";
 
 const Sustainability = () => {
-  const observerRef = useRef(null);
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.2,
-      rootMargin: "0px",
-    };
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
 
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, observerOptions);
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
-    const elements = document.querySelectorAll(".fade-in-section");
-    elements.forEach((el) => observerRef.current.observe(el));
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
+  const scaleIn = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
 
   return (
     <div className="sustainability-page">
-      <div className="sustainability-hero">
+      <motion.div
+        className="sustainability-hero"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="sustainability-hero-content">
-          <h1>Environment & Sustainability</h1>
-          <p>Our Commitment to Responsible Mining and Manufacturing</p>
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Environment & Sustainability
+          </motion.h1>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Our Commitment to Responsible Mining and Manufacturing
+          </motion.p>
+          <motion.div
+            className="hero-decoration"
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, 0],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
         </div>
-      </div>
+      </motion.div>
 
-      <div className="sustainability-section">
+      <div className="sustainability-section" ref={ref}>
         <div className="sustainability-container">
-          <div className="sustainability-grid">
-            <div className="sustainability-image-container fade-in-section">
+          <motion.div
+            className="sustainability-grid"
+            variants={staggerChildren}
+            initial="hidden"
+            animate={controls}
+          >
+            <motion.div
+              className="sustainability-image-container"
+              variants={scaleIn}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="image-overlay" />
               <img
                 src={Sustain}
                 alt="Sustainability Initiative"
                 className="sustainability-image"
               />
-            </div>
-            <div className="sustainability-content fade-in-section">
+            </motion.div>
+            <motion.div className="sustainability-content" variants={fadeInUp}>
               <h2 className="section-title">Our Environmental Philosophy</h2>
               <p className="sustainability-text">
                 Despite the inherent challenges in manganese production, Mahavir
@@ -63,43 +116,66 @@ const Sustainability = () => {
                 our dedication to sustainable and eco-friendly practices in
                 every facet of our operations.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="sustainability-initiatives">
+      <motion.div
+        className="sustainability-initiatives"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerChildren}
+      >
         <div className="initiatives-container">
-          <h2 className="section-title text-center">
+          <motion.h2 className="section-title text-center" variants={fadeInUp}>
             Our Key Sustainability Initiatives
-          </h2>
+          </motion.h2>
           <div className="initiatives-grid">
-            <div className="initiative-card">
-              <h3>Pollution Control</h3>
-              <p>
-                Advanced filtration and emission control systems to minimize
-                environmental impact.
-              </p>
-            </div>
-            <div className="initiative-card">
-              <h3>Resource Efficiency</h3>
-              <p>
-                Implementing lean manufacturing practices to reduce waste and
-                optimize resource consumption.
-              </p>
-            </div>
-            <div className="initiative-card">
-              <h3>Community Engagement</h3>
-              <p>
-                Active participation in local environmental and community
-                development programs.
-              </p>
-            </div>
+            {[
+              {
+                title: "Pollution Control",
+                description:
+                  "Advanced filtration and emission control systems to minimize environmental impact.",
+              },
+              {
+                title: "Resource Efficiency",
+                description:
+                  "Implementing lean manufacturing practices to reduce waste and optimize resource consumption.",
+              },
+              {
+                title: "Community Engagement",
+                description:
+                  "Active participation in local environmental and community development programs.",
+              },
+            ].map((initiative, index) => (
+              <motion.div
+                key={index}
+                className="initiative-card"
+                variants={scaleIn}
+                whileHover={{
+                  y: -10,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="card-decoration" />
+                <h3>{initiative.title}</h3>
+                <p>{initiative.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="sustainability-commitment">
+      <motion.div
+        className="sustainability-commitment"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
         <div className="commitment-container">
           <h2 className="section-title text-center">
             Our Long-Term Commitment
@@ -111,7 +187,7 @@ const Sustainability = () => {
             product quality and industrial excellence.
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

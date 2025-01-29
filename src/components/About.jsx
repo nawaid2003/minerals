@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import "../styles/About.scss";
 import Header from "./Header";
 import Facility from "../images/m5.jpg";
 import Moil from "../images/moil.png";
 import History from "../images/history.png";
-import Sustain from "../images/sustain.png";
+import "../styles/About.scss";
 
 const LinkedInIcon = () => (
   <svg
@@ -43,7 +41,6 @@ const About = () => {
   const parallaxRef = useRef(null);
 
   useEffect(() => {
-    // Parallax Effect
     const handleScroll = () => {
       if (parallaxRef.current) {
         const scrolled = window.pageYOffset;
@@ -62,23 +59,9 @@ const About = () => {
   }, []);
 
   useEffect(() => {
-    // Animation Observers
     const observerOptions = { threshold: 0.1 };
 
-    // Story Text Animation
-    const storyObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, observerOptions);
-
-    document
-      .querySelectorAll(".story-text")
-      .forEach((el) => storyObserver.observe(el));
-
-    // Stats Cards Animation
+    // Animation for number counters
     const animateCounter = (counter) => {
       const target = parseInt(counter.getAttribute("data-target"));
       const duration = 2000;
@@ -96,12 +79,13 @@ const About = () => {
       }, 16);
     };
 
-    const statsObserver = new IntersectionObserver((entries) => {
+    // Observe achievement cards
+    const achievementsObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("visible");
-            const counter = entry.target.querySelector(".counter");
+            const counter = entry.target.querySelector(".achievement-number");
             if (counter) animateCounter(counter);
           }, index * 200);
         }
@@ -109,10 +93,10 @@ const About = () => {
     }, observerOptions);
 
     document
-      .querySelectorAll(".stat-card")
-      .forEach((card) => statsObserver.observe(card));
+      .querySelectorAll(".achievement-card")
+      .forEach((card) => achievementsObserver.observe(card));
 
-    // Section Animations
+    // Observe sections for fade-in
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -121,12 +105,20 @@ const About = () => {
       });
     }, observerOptions);
 
-    document
-      .querySelectorAll(".fade-in-section")
-      .forEach((section) => sectionObserver.observe(section));
+    const sections = [
+      ".company-overview",
+      ".leadership-showcase",
+      ".heritage-showcase",
+    ];
+
+    sections.forEach((section) => {
+      document
+        .querySelectorAll(section)
+        .forEach((el) => sectionObserver.observe(el));
+    });
   }, []);
 
-  const managementTeam = [
+  const leadershipTeam = [
     {
       name: "Mr Chandrakant Goenka",
       position: "Director",
@@ -147,24 +139,24 @@ const About = () => {
 
   return (
     <div className="about-page">
-      <Header /> {/* Add the Header component */}
-      {/* Hero Section */}
+      <Header />
+
+      {/* Hero Section (Unchanged) */}
       <div className="hero-section">
         <div className="hero-container">
-          <h1 className="hero-title story-text">About Mahavir Minerals</h1>
-          <p className="hero-subtitle story-text">
-            Leading Mineral Solutions Since 1990
-          </p>
+          <h1 className="hero-title">About Mahavir Minerals</h1>
+          <p className="hero-subtitle">Leading Mineral Solutions Since 1990</p>
         </div>
       </div>
-      {/* About Us Section */}
-      <div className="about-us-section fade-in-section">
-        <div className="container">
-          <div className="about-content">
-            <div className="about-image">
+
+      {/* Company Overview Section */}
+      <div className="company-overview">
+        <div className="container-wrapper">
+          <div className="overview-grid">
+            <div className="overview-media">
               <img src={Facility} alt="Mahavir Minerals Facility" />
             </div>
-            <div className="about-text">
+            <div className="overview-content">
               <h2>About Us</h2>
               <p>
                 Mahavir Minerals, located in Paonarkhari, Bhandara district,
@@ -183,48 +175,50 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* Stats Section */}
-      <div className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
+
+      {/* Achievements Section */}
+      <div className="achievements-showcase">
+        <div className="container-wrapper">
+          <div className="achievements-grid">
             {[
               { value: 30, label: "Years Experience" },
               { value: 500, label: "Projects Completed" },
               { value: 50, label: "Countries Served" },
               { value: 100, label: "Team Members" },
             ].map((stat, index) => (
-              <div key={index} className="stat-card">
-                <div className="counter" data-target={stat.value}>
+              <div key={index} className="achievement-card">
+                <div className="achievement-number" data-target={stat.value}>
                   0
                 </div>
-                <div className="stat-label">{stat.label}</div>
+                <div className="achievement-label">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      {/* Management Section */}
-      <div className="management-section fade-in-section">
-        <div className="container">
-          <h2 className="section-title">Our Management</h2>
-          <div className="management-grid">
-            {managementTeam.map((member, index) => (
-              <div key={index} className="management-card">
-                <div className="member-image">
-                  <img src={member.image} alt={member.name} />
+
+      {/* Leadership Section */}
+      <div className="leadership-showcase">
+        <div className="container-wrapper">
+          <h2 className="leadership-title">Our Management</h2>
+          <div className="leadership-grid">
+            {leadershipTeam.map((leader, index) => (
+              <div key={index} className="leader-profile">
+                <div className="leader-image-wrapper">
+                  <img src={leader.image} alt={leader.name} />
                 </div>
-                <div className="member-info">
-                  <h3>{member.name}</h3>
-                  <p className="position">{member.position}</p>
-                  <p className="experience">{member.experience}</p>
+                <div className="leader-details">
+                  <h3>{leader.name}</h3>
+                  <p className="leader-position">{leader.position}</p>
+                  <p className="leader-bio">{leader.experience}</p>
                   <div className="social-links">
-                    {member.social.linkedin && (
-                      <a href={member.social.linkedin} className="social-link">
+                    {leader.social.linkedin && (
+                      <a href={leader.social.linkedin} className="social-link">
                         <LinkedInIcon />
                       </a>
                     )}
-                    {member.social.whatsapp && (
-                      <a href={member.social.whatsapp} className="social-link">
+                    {leader.social.whatsapp && (
+                      <a href={leader.social.whatsapp} className="social-link">
                         <WhatsAppIcon />
                       </a>
                     )}
@@ -235,12 +229,13 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* Association Section */}
-      <div className="association-section fade-in-section">
-        <div className="container">
-          <h2 className="section-title">Association with MOIL</h2>
-          <div className="association-content">
-            <div className="association-text">
+
+      {/* Heritage Section */}
+      <div className="heritage-showcase">
+        <div className="container-wrapper">
+          <h2 className="heritage-title">Association with MOIL</h2>
+          <div className="heritage-grid">
+            <div className="heritage-content">
               <h3>A Heritage of Collaboration and Entrepreneurship</h3>
               <p>
                 Mahavir Minerals shares a rich heritage with MOIL, reaching back
@@ -256,44 +251,17 @@ const About = () => {
                 construction projects, wood supply, and various other ventures.
               </p>
             </div>
-            <div className="association-images">
-              <img src={Moil} alt="MOIL Facility" className="moil-image" />
+            <div className="heritage-gallery">
+              <img
+                src={Moil}
+                alt="MOIL Facility"
+                className="contemporary-image"
+              />
               <img
                 src={History}
                 alt="Historical Photo"
-                className="historical-image"
+                className="legacy-image"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="sustainability-section">
-        <div className="sustainability-container">
-          <div className="sustainability-grid">
-            <div className="sustainability-image-container fade-in-section">
-              <img
-                src={Sustain}
-                alt="Sustainability Initiative"
-                className="sustainability-image"
-              />
-            </div>
-            <div className="sustainability-content fade-in-section">
-              <h2 className="section-title">Environment & Sustainability</h2>
-              <p className="sustainability-text">
-                Despite the inherent challenges in manganese production, Mahavir
-                Minerals prioritizes environmental responsibility. Situated
-                strategically away from residential areas, our factory minimizes
-                disturbance to nearby communities.
-              </p>
-              <p className="sustainability-text">
-                A strong emphasis on regular machinery maintenance underscores
-                our commitment to preventing air or sound pollution, reflecting
-                our dedication to sustainable and eco-friendly practices in
-                every facet of our operations.
-              </p>
-              <Link to="/sustainability" className="learn-more-button">
-                Learn More
-              </Link>
             </div>
           </div>
         </div>
