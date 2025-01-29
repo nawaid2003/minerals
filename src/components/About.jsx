@@ -3,39 +3,9 @@ import Header from "./Header";
 import Facility from "../images/m5.jpg";
 import Moil from "../images/moil.png";
 import History from "../images/history.png";
+import Owner1 from "../images/owner1.png";
+import Owner2 from "../images/owner2.png";
 import "../styles/About.scss";
-
-const LinkedInIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-  </svg>
-);
-
-const WhatsAppIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-  </svg>
-);
 
 const About = () => {
   const parallaxRef = useRef(null);
@@ -124,16 +94,14 @@ const About = () => {
       position: "Director",
       experience:
         "As the founder of Mahavir Minerals, he steered the company through its formative years, and under his leadership, the company not only sustained itself but also experienced substantial growth.",
-      image: "/api/placeholder/300/300",
-      social: { whatsapp: "#" },
+      image: Owner1,
     },
     {
       name: "Mr Mukund Goenka",
       position: "Business Analyst, Marketing Manager",
       experience:
         "As the son of Mr. Chandrakant Goenka, he has assumed a pivotal role, leveraging his expertise gained from completing his master's in management at the University of Birmingham, England.",
-      image: "/api/placeholder/300/300",
-      social: { linkedin: "#" },
+      image: Owner2,
     },
   ];
 
@@ -142,7 +110,7 @@ const About = () => {
       <Header />
 
       {/* Hero Section (Unchanged) */}
-      <div className="hero-section">
+      <div className="hero-section about-hero">
         <div className="hero-container">
           <h1 className="hero-title">About Mahavir Minerals</h1>
           <p className="hero-subtitle">Leading Mineral Solutions Since 1990</p>
@@ -184,7 +152,6 @@ const About = () => {
               { value: 30, label: "Years Experience" },
               { value: 500, label: "Projects Completed" },
               { value: 50, label: "Countries Served" },
-              { value: 100, label: "Team Members" },
             ].map((stat, index) => (
               <div key={index} className="achievement-card">
                 <div className="achievement-number" data-target={stat.value}>
@@ -211,18 +178,6 @@ const About = () => {
                   <h3>{leader.name}</h3>
                   <p className="leader-position">{leader.position}</p>
                   <p className="leader-bio">{leader.experience}</p>
-                  <div className="social-links">
-                    {leader.social.linkedin && (
-                      <a href={leader.social.linkedin} className="social-link">
-                        <LinkedInIcon />
-                      </a>
-                    )}
-                    {leader.social.whatsapp && (
-                      <a href={leader.social.whatsapp} className="social-link">
-                        <WhatsAppIcon />
-                      </a>
-                    )}
-                  </div>
                 </div>
               </div>
             ))}

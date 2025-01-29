@@ -113,15 +113,24 @@ const Contact = () => {
           <div className="contact-info">
             <div className="info-item">
               <User className="icon" />
-              <h3>Mukund Goenka</h3>
+              <div>
+                <h3>Mukund Goenka</h3>
+                <p>Contact Person</p>
+              </div>
             </div>
             <div className="info-item">
               <Mail className="icon" />
-              <p>mahavirminerals12@gmail.com</p>
+              <div>
+                <h3>Email</h3>
+                <p>mahavirminerals12@gmail.com</p>
+              </div>
             </div>
             <div className="info-item">
               <Phone className="icon" />
-              <p>+91 983 4447 544</p>
+              <div>
+                <h3>Phone</h3>
+                <p>+91 983 4447 544</p>
+              </div>
             </div>
           </div>
 
@@ -158,11 +167,9 @@ const Contact = () => {
           <div className="image-grid">
             <div className="image-container">
               <img src={Office} alt="Office" />
-              <div className="image-label">Office</div>
             </div>
             <div className="image-container">
               <img src={FactoryPic} alt="Factory" />
-              <div className="image-label">Factory</div>
             </div>
           </div>
         </div>

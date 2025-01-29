@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MnO from "../images/mn02.png";
 import MnO2 from "../images/mndioxide.png";
 import FeedGrade from "../images/feedgrademno.png";
@@ -43,6 +43,18 @@ const ParallaxBackground = () => {
 const Home = () => {
   const observerRef = useRef(null);
   const aboutSectionRef = useRef(null);
+  const navigate = useNavigate();
+
+  // Utility function to scroll to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Function to handle navigation with scroll to top
+  const handleNavigation = (path) => {
+    navigate(path);
+    scrollToTop();
+  };
 
   const animateNumber = (element) => {
     if (element.classList.contains("animated")) return;
@@ -159,7 +171,11 @@ const Home = () => {
                 quality manganese oxide and now aspires to become a
                 manufacturing powerhouse for various manganese-based compounds.
               </p>
-              <Link to="/about" className="learn-more-button">
+              <Link
+                to="/about"
+                className="learn-more-button"
+                onClick={() => handleNavigation("/about")}
+              >
                 Learn More
               </Link>
             </div>
@@ -209,7 +225,11 @@ const Home = () => {
                     />
                   </div>
                   <div className="productscase-overlay">
-                    <Link to={product.link} className="learn-more-button">
+                    <Link
+                      to={product.link}
+                      className="learn-more-button"
+                      onClick={() => handleNavigation(product.link)}
+                    >
                       Explore Product
                     </Link>
                   </div>
@@ -231,7 +251,11 @@ const Home = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            <Link to="/products" className="view-all-button">
+            <Link
+              to="/products"
+              className="view-all-button"
+              onClick={() => handleNavigation("/products")}
+            >
               View All Products
             </Link>
           </motion.div>
@@ -262,7 +286,11 @@ const Home = () => {
                 our dedication to sustainable and eco-friendly practices in
                 every facet of our operations.
               </p>
-              <Link to="/sustainability" className="learn-more-button">
+              <Link
+                to="/sustainability"
+                className="learn-more-button"
+                onClick={() => handleNavigation("/sustainability")}
+              >
                 Learn More
               </Link>
             </div>

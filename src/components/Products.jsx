@@ -8,6 +8,7 @@ import MnO2 from "../images/mndioxide.png";
 import FeedGrade from "../images/feedgrademno.png";
 import Ore from "../images/MnOre.png";
 import Media from "../images/MediaMn.png";
+import Mg from "../images/mnG.jpg";
 import "../styles/Products.scss";
 
 const products = [
@@ -180,7 +181,7 @@ const Products = () => {
       <Header />
 
       <motion.div
-        className="hero-section"
+        className="hero-section products-hero" // Add products-hero class here
         variants={heroVariants}
         initial="hidden"
         animate="visible"
@@ -192,7 +193,7 @@ const Products = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
           >
-            Our Premium Products
+            Our Products
           </motion.h1>
           <motion.p
             className="hero-subtitle"

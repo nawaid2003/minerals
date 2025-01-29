@@ -1,3 +1,4 @@
+
 // Variables
 $primary-color: #001f3f;
 $secondary-color: #003366;
@@ -43,6 +44,7 @@ $gray-800: #2d3748;
     right: 0;
     bottom: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: 1;
   }
 
   .hero-container {
@@ -205,6 +207,44 @@ $gray-800: #2d3748;
       .btn-arrow {
         transform: translateX(5px);
       }
+    }
+  }
+}
+
+// Add this new class
+.products-hero {
+  // Override the gradient background
+  background: none !important;  // Use !important to override the existing background
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/mnG.jpg');
+    background-size: 100%;
+    background-position: center;
+    filter: brightness(0.6);
+    opacity: 1; // Changed from 0.2 to 1 for full visibility
+    z-index: 0;
+  }
+
+  // Remove the pattern overlay for this specific hero
+  &::before {
+    display: none;
+  }
+
+  // Ensure text remains visible
+  .hero-container {
+    position: relative;
+    z-index: 1;
+    
+    // Add a text shadow to ensure readability
+    .hero-title,
+    .hero-subtitle {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
   }
 }
