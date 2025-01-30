@@ -1,3 +1,4 @@
+// ManganeseOxideFeedGrade.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import "../styles/ManganeseOxideFeedGrade.scss";
@@ -30,12 +31,62 @@ const ManganeseOxideFeedGrade = () => {
             Manganese is an essential micronutrient for animals, playing a
             crucial role in various physiological functions. It serves as a
             valuable source of manganese, a crucial trace element necessary for
-            the well-being of livestock and poultry.
+            the well-being of livestock and poultry. This feed-grade supplement
+            ensures that animals receive an optimal level of manganese to
+            support various physiological functions, including bone development,
+            enzyme activation, reproduction, and overall metabolic processes.
+          </motion.p>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            Nevertheless, if the provided specifications do not align with the
+            customer's requirements, Mahavir Minerals is ready to customize the
+            product accordingly.
           </motion.p>
         </div>
       </div>
 
-      <div className="specifications-section">
+      <motion.div
+        className="characteristics-section"
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+      >
+        <h2>Physical Characteristics</h2>
+        <table className="characteristics-table">
+          <tbody>
+            <tr>
+              <td>Odour</td>
+              <td>Odourless</td>
+            </tr>
+            <tr>
+              <td>Fluidity</td>
+              <td>Free flowing fine powder</td>
+            </tr>
+            <tr>
+              <td>Color</td>
+              <td>Greenish Brown</td>
+            </tr>
+            <tr>
+              <td>Particle Size</td>
+              <td>100 or 200 mesh (95-100% passing, Or as per requirement)</td>
+            </tr>
+            <tr>
+              <td>Specific Gravity</td>
+              <td>4 to 4.5 Toxicity Non - Hazardous</td>
+            </tr>
+          </tbody>
+        </table>
+      </motion.div>
+
+      <motion.div
+        className="specifications-section"
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.7, duration: 0.6 }}
+      >
         <h2>Specifications</h2>
         <table className="specifications-table">
           <thead>
@@ -109,7 +160,7 @@ const ManganeseOxideFeedGrade = () => {
             <tr>
               <td>13</td>
               <td>Shelf life</td>
-              <td>3 years*</td>
+              <td>3 years</td>
             </tr>
             <tr>
               <td>14</td>
@@ -125,7 +176,7 @@ const ManganeseOxideFeedGrade = () => {
             </tr>
           </tbody>
         </table>
-      </div>
+      </motion.div>
     </div>
   );
 };

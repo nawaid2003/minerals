@@ -1,55 +1,138 @@
+// ManganeseOxideFeedGrade.scss
 .manganese-oxide-feed-grade {
-    .hero-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #001f3f;
-      color: #fff;
-      padding: 4rem 2rem;
-  
-      img {
-        max-width: 400px;
-        margin-right: 2rem;
-      }
-  
-      .hero-content {
-        flex: 1;
-  
-        h1 {
-          font-size: 2.5rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
-  
-        p {
-          font-size: 1.25rem;
-        }
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #001f3f;
+    color: #fff;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    img {
+      max-width: 400px;
+      margin-right: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 2rem;
+        max-width: 100%;
       }
     }
-  
-    .specifications-section {
-      padding: 4rem 2rem;
-  
-      h2 {
-        font-size: 2rem;
+
+    .hero-content {
+      flex: 1;
+
+      h1 {
+        font-size: 2.5rem;
         font-weight: 700;
-        margin-bottom: 2rem;
-      }
-  
-      .specifications-table {
-        width: 100%;
-        border-collapse: collapse;
-  
-        th, td {
-          padding: 1rem;
-          border-bottom: 1px solid #ccc;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+          font-size: 2rem;
         }
-  
-        th {
-          text-align: left;
-          background-color: #001f3f;
-          color: #fff;
+      }
+
+      p {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
         }
       }
     }
   }
+
+  .characteristics-section,
+  .specifications-section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #001f3f;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .characteristics-table {
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+
+      &:first-child {
+        font-weight: 600;
+        background-color: #f8f9fa;
+        width: 200px;
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  }
+
+  .specifications-table {
+    th {
+      text-align: left;
+      background-color: #001f3f;
+      color: #fff;
+      padding: 1rem;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+
+      &:first-child {
+        width: 80px;
+        font-weight: 500;
+      }
+
+      &:nth-child(2) {
+        font-weight: 500;
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      background-color: #f8f9fa;
+    }
+  }
+}
