@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-import {
-  Building2,
-  Mail,
-  Phone,
-  MapPin,
-  Building,
-  Factory,
-  User,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Factory } from "lucide-react";
 import Header from "./Header";
 import "../styles/Contact.scss";
 import Office from "../images/office.jpg";
@@ -105,71 +97,44 @@ const Contact = () => {
       <section className="content-section">
         <section className="contact-details-section">
           <div className="contact-card">
-            <h2 className="section-title">
-              <Building2 className="icon" />
-              Contact Details
-            </h2>
+            <h2 className="section-title">Contact Details</h2>
 
-            <div className="contact-info">
-              <div className="info-item">
-                <User className="icon" />
-                <div>
-                  <h3>Mukund Goenka</h3>
-                  <p>Contact Person</p>
+            <div className="contact-person-info">
+              <h3>Mukund Goenka</h3>
+              <div className="contact-methods">
+                <div className="contact-method">
+                  <Mail className="icon" />
+                  <span>mahavirminerals12@gmail.com</span>
                 </div>
-              </div>
-              <div className="info-item">
-                <Mail className="icon" />
-                <div>
-                  <h3>Email</h3>
-                  <p>mahavirminerals12@gmail.com</p>
-                </div>
-              </div>
-              <div className="info-item">
-                <Phone className="icon" />
-                <div>
-                  <h3>Phone</h3>
-                  <p>+91 983 4447 544</p>
+                <div className="contact-method">
+                  <Phone className="icon" />
+                  <span>+91 983 4447 544</span>
                 </div>
               </div>
             </div>
 
-            <div className="address-section">
-              <div className="address-header">
-                <Building className="icon" />
-                <h3>Office Address</h3>
-              </div>
-              <div className="address-content">
-                <div className="address-line">
-                  <MapPin className="icon" />
+            <div className="address-grid">
+              <div className="address-card">
+                <img src={Office} alt="Office" className="address-image" />
+                <div className="address-content">
+                  <div className="address-header">
+                    <MapPin className="icon" />
+                    <h3>Office Address</h3>
+                  </div>
                   <p>63 Shivaji Nagar Plot No 63 Near Lad Square</p>
-                </div>
-                <div className="address-line">
-                  <MapPin className="icon" />
                   <p>Paonarkhari - Tumsar, Bhandara District -441912</p>
                 </div>
               </div>
-            </div>
 
-            <div className="address-section">
-              <div className="address-header">
-                <Factory className="icon" />
-                <h3>Factory Address</h3>
-              </div>
-              <div className="address-content">
-                <div className="address-line">
-                  <MapPin className="icon" />
+              <div className="address-card">
+                <img src={FactoryPic} alt="Factory" className="address-image" />
+                <div className="address-content">
+                  <div className="address-header">
+                    <Factory className="icon" />
+                    <h3>Factory Address</h3>
+                  </div>
                   <p>Paonarkhari - Tumsar, Bhandara District -441912</p>
                 </div>
-              </div>
-            </div>
-
-            <div className="image-grid">
-              <div className="image-container">
-                <img src={Office} alt="Office" />
-              </div>
-              <div className="image-container">
-                <img src={FactoryPic} alt="Factory" />
               </div>
             </div>
           </div>
