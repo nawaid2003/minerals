@@ -1,4 +1,3 @@
-// Variables (matching the contact page)
 $primary-color: #001f3f;
 $secondary-color: #001f3f;
 $white: #fff;
@@ -19,76 +18,78 @@ $gray-700: #374151;
 }
 
 .navigation {
-    background-color: $white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
+  background-color: $white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; // Increased z-index to ensure it stays on top
+  animation: slideInDown 0.5s ease;
+
+  .nav-container {
     width: 100%;
-    top: 0;
-    z-index: 50;
-    animation: slideInDown 0.5s ease;
-  
-    .nav-container {
-      width: 100%;
+    position: relative;
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between; // Changed to better distribute space
+      align-items: center;
+      height: 5rem; // Increased height to accommodate larger logo
+      padding: 0 1.5rem;
+    }
+  }
+
+  .logo-container {
+    padding-left: 0;
+    .logo-image {
+      height: 200px; // Increased logo size
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  .desktop-menu {
+    display: none;
+    gap: 2rem;
+    margin-left: 750px ; // This will push the menu to the right more naturally
+    padding-right: 2rem;
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: $gray-600;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
       position: relative;
-  
-      .nav-content {
-        display: flex;
-        justify-content: flex-start; // Changed from space-between
-        align-items: center;
-        height: 4rem;
-        padding: 0 1.5rem;
+      white-space: nowrap;
+
+      &:hover {
+        color: $primary-color;
       }
-    }
-  
-    .logo-container {
-      padding-left: 0;
-      .logo-image {
-        height: 50px;
-        width: auto;
-      }
-    }
-  
-    .desktop-menu {
-      display: none;
-      gap: 2rem;
-      margin-left: 700px; // This pushes the menu to the right
-      padding-right: 0;
-  
-      @media (min-width: 768px) {
-        display: flex;
-        align-items: center;
-      }
-  
-      .nav-link {
-        color: $gray-600;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        position: relative;
-        white-space: nowrap;
-  
-        &:hover {
-          color: $primary-color;
-        }
-  
-        &.active {
-          color: $primary-color;
-  
-          &::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: $primary-color;
-          }
+
+      &.active {
+        color: $primary-color;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $primary-color;
         }
       }
     }
-  
+  }
 
   .mobile-menu-button-container {
+    margin-left: 300px; // This will push the button to the right
+
     @media (min-width: 768px) {
       display: none;
     }
@@ -111,59 +112,50 @@ $gray-700: #374151;
     display: none;
     flex-direction: column;
     background-color: $white;
-    position: fixed; // Changed from default
-    top: 4rem; // Match header height
+    position: absolute;
+    top: 100%; // Position right below header
     left: 0;
     right: 0;
-    z-index: 49; // Just below header
+    z-index: 999;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-height: calc(100vh - 4rem); // Account for header height
-    overflow-y: auto; // Add scroll if needed
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
 
-  // Update animation
-  transform: translateY(-100%);
-  opacity: 0;
-  transition: all 0.3s ease;
-
-  &.show {
-    display: flex;
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .mobile-link {
-    color: $gray-600;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem; // Increased padding
-    font-weight: 500;
-    transition: color 0.3s ease;
-    border-bottom: 1px solid $gray-300;
-
-    &:last-child {
-      border-bottom: none;
+    &.show {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
     }
 
-    &:hover {
-      color: $primary-color;
-      background-color: $gray-100;
-    }
-  }
+    .mobile-link {
+      color: $gray-600;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid $gray-300;
 
+      &:last-child {
+        border-bottom: none;
+      }
 
-    @media (min-width: 768px) {
-      display: none;
+      &:hover {
+        color: $primary-color;
+        background-color: $gray-100;
+      }
     }
   }
 }
 
+// Mobile specific styles
 @media (max-width: 767px) {
   .desktop-menu {
     display: none !important;
   }
   
-  .mobile-menu-button-container {
-    margin-left: 300px; // Push hamburger to right
-    padding-right: 1rem;
+  .navigation .nav-content {
+    justify-content: space-between; // Better spacing on mobile
   }
 }

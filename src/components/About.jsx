@@ -5,6 +5,7 @@ import Moil from "../images/moil.png";
 import History from "../images/history.png";
 import Owner1 from "../images/owner1.png";
 import Owner2 from "../images/owner2.png";
+import Sustain from "../images/sustain.png";
 import "../styles/About.scss";
 
 const About = () => {
@@ -48,7 +49,6 @@ const About = () => {
       }, 16);
     };
 
-    // Observe achievement cards
     const achievementsObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -65,7 +65,6 @@ const About = () => {
       .querySelectorAll(".achievement-card")
       .forEach((card) => achievementsObserver.observe(card));
 
-    // Observe sections for fade-in
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -78,6 +77,7 @@ const About = () => {
       ".company-overview",
       ".leadership-showcase",
       ".heritage-showcase",
+      ".environment-section",
     ];
 
     sections.forEach((section) => {
@@ -108,7 +108,6 @@ const About = () => {
     <div className="about-page">
       <Header />
 
-      {/* Hero Section (Unchanged) */}
       <div className="hero-section about-hero">
         <div className="hero-container">
           <h1 className="hero-title">About Mahavir Minerals</h1>
@@ -116,7 +115,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* Company Overview Section */}
       <div className="company-overview">
         <section className="content-section">
           <div className="container-wrapper">
@@ -145,7 +143,6 @@ const About = () => {
         </section>
       </div>
 
-      {/* Achievements Section */}
       <div className="achievements-showcase">
         <section className="content-section">
           <div className="container-wrapper">
@@ -157,7 +154,7 @@ const About = () => {
               ].map((stat, index) => (
                 <div key={index} className="achievement-card">
                   <div className="achievement-number" data-target={stat.value}>
-                    {stat.value.replace("+", "")}{" "}
+                    {stat.value.replace("+", "")}
                   </div>
                   <div className="achievement-label">{stat.label}</div>
                 </div>
@@ -167,7 +164,6 @@ const About = () => {
         </section>
       </div>
 
-      {/* Leadership Section */}
       <div className="leadership-showcase">
         <div className="container-wrapper">
           <h2 className="leadership-title">Our Management</h2>
@@ -188,7 +184,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* Heritage Section */}
       <div className="heritage-showcase">
         <div className="container-wrapper">
           <h2 className="heritage-title">Association with MOIL</h2>
@@ -219,6 +214,35 @@ const About = () => {
                 src={History}
                 alt="Historical Photo"
                 className="legacy-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="environment-section fade-in-section">
+        <div className="container-wrapper">
+          <div className="environment-grid">
+            <div className="environment-content">
+              <h2 className="section-title">Environment & Sustainability</h2>
+              <p className="environment-text">
+                Despite the inherent challenges in manganese production, Mahavir
+                Minerals prioritizes environmental responsibility. Situated
+                strategically away from residential areas, our factory minimizes
+                disturbance to nearby communities.
+              </p>
+              <p className="environment-text">
+                A strong emphasis on regular machinery maintenance underscores
+                our commitment to preventing air or sound pollution, reflecting
+                our dedication to sustainable and eco-friendly practices in
+                every facet of our operations.
+              </p>
+            </div>
+            <div className="environment-image-container">
+              <img
+                src={Sustain}
+                alt="Environmental Sustainability"
+                className="environment-image"
               />
             </div>
           </div>
