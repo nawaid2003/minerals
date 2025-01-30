@@ -16,7 +16,7 @@ const products = [
     id: 1,
     title: "MANGANESE OXIDE POWDER",
     description:
-      "Manganese Oxide (Feed Grade) is used as a trace mineral in Animal Feed & is also used as a fertilizer in the Agriculture Industry.",
+      "Industrial-grade compound powering diverse chemical processes and manufacturing applications",
     image: MnO,
     order: "normal",
     link: "/ManganeseOxidePowder",
@@ -25,7 +25,7 @@ const products = [
     id: 2,
     title: "MANGANESE DIOXIDE",
     description:
-      "Manganese Oxide (Chemical Grade) is used as a raw material for manufacturing Manganese salts such as Manganese Carbonate and Manganese Sulphate.",
+      "Key raw material for producing essential manganese salts and chemical compounds",
     image: MnO2,
     order: "reverse",
     link: "/MangneseDioxide",
@@ -34,7 +34,7 @@ const products = [
     id: 3,
     title: "MANGANESE OXIDE FEED GRADE",
     description:
-      "High-quality Manganese Dioxide for various industrial applications including battery manufacturing and chemical processes.",
+      "Specialized micronutrient supplement enhancing livestock health and agricultural productivity",
     image: FeedGrade,
     order: "normal",
     link: "/ManganeseOxideFeedGrade",
@@ -43,7 +43,7 @@ const products = [
     id: 4,
     title: "MANGANESE ORE FINES",
     description:
-      "Premium Manganese Sulphate for agricultural and industrial uses, ensuring optimal mineral supplementation.",
+      "Core mineral resource driving steel manufacturing and metallurgical processes",
     image: Ore,
     order: "reverse",
     link: "/ManganeseOreFines",
@@ -52,7 +52,7 @@ const products = [
     id: 5,
     title: "FILTER MEDIA MnO₂",
     description:
-      "High-quality Manganese Dioxide for various industrial applications including battery manufacturing and chemical processes.",
+      "Advanced filtration material ensuring efficient water purification and treatment solutions",
     image: Media,
     order: "normal",
     link: "/MnO2FilterMedia",

@@ -115,26 +115,35 @@ const Home = () => {
       title: "Manganese Oxide Powder",
       image: MnO,
       link: "/products#oxide-powder",
+      description:
+        "Advanced chemical compound for batteries and industrial processes",
     },
     {
       title: "Manganese Dioxide",
       image: MnO2,
       link: "/products#dioxide",
+      description:
+        "Essential component for batteries and electronic manufacturing",
     },
     {
       title: "Manganese Oxide Feed Grade",
       image: FeedGrade,
       link: "/products#feed-grade",
+      description:
+        "Vital nutrient supplement for livestock and poultry development",
     },
     {
       title: "MANGANESE ORE FINES",
       image: Ore,
       link: "/products#ore-fines",
+      description: "High-grade mineral resource for steel and alloy production",
     },
     {
       title: "FILTER MEDIA MnO₂",
       image: Media,
       link: "/products#filter-media",
+      description:
+        "Specialized filtration material for water treatment systems",
     },
   ];
 
@@ -238,8 +247,7 @@ const Home = () => {
                 <div className="productscase-content">
                   <h3 className="productscase-title">{product.title}</h3>
                   <div className="productscase-description">
-                    Premium quality manganese products for industrial
-                    applications
+                    {product.description}
                   </div>
                 </div>
               </motion.div>
