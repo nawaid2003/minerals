@@ -31,7 +31,6 @@ const About = () => {
   useEffect(() => {
     const observerOptions = { threshold: 0.1 };
 
-    // Animation for number counters
     const animateCounter = (counter) => {
       const target = parseInt(counter.getAttribute("data-target"));
       const duration = 2000;
@@ -41,7 +40,7 @@ const About = () => {
       const timer = setInterval(() => {
         current += step;
         if (current >= target) {
-          counter.textContent = target;
+          counter.textContent = target === 1994 ? target : target + "+";
           clearInterval(timer);
         } else {
           counter.textContent = Math.floor(current);
@@ -152,13 +151,13 @@ const About = () => {
           <div className="container-wrapper">
             <div className="achievements-grid">
               {[
-                { value: 30, label: "Years Experience" },
-                { value: 500, label: "Projects Completed" },
-                { value: 50, label: "Countries Served" },
+                { value: "30+", label: "Years Experience" },
+                { value: "1994", label: "Since Our Journey Began" },
+                { value: "10+", label: "Product Portfolio" },
               ].map((stat, index) => (
                 <div key={index} className="achievement-card">
                   <div className="achievement-number" data-target={stat.value}>
-                    0
+                    {stat.value.replace("+", "")}{" "}
                   </div>
                   <div className="achievement-label">{stat.label}</div>
                 </div>

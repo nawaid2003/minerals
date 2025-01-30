@@ -68,10 +68,11 @@ const Home = () => {
     const timer = setInterval(() => {
       current += step;
       if (current >= target) {
-        element.textContent = target + "+";
+        element.textContent = target === 1994 ? target : target + "+";
         clearInterval(timer);
       } else {
-        element.textContent = Math.floor(current) + "+";
+        element.textContent =
+          Math.floor(current) + (target === 1994 ? "" : "+");
       }
     }, 16);
   };
@@ -312,21 +313,23 @@ const Home = () => {
               </p>
             </div>
             <div className="stat-card">
-              <div className="stat-number" data-target="100">
-                0+
+              <div className="stat-number" data-target="1994">
+                0
               </div>
-              <h3 className="stat-title">Global Projects</h3>
+              <h3 className="stat-title">Since Our Journey Began</h3>
               <p className="stat-description">
-                Successfully completed projects across all continents
+                Pioneering manganese oxide production with unwavering commitment
+                to quality
               </p>
             </div>
             <div className="stat-card">
-              <div className="stat-number" data-target="50">
+              <div className="stat-number" data-target="10">
                 0+
               </div>
-              <h3 className="stat-title">Countries Served</h3>
+              <h3 className="stat-title">Product Portfolio</h3>
               <p className="stat-description">
-                International presence with local expertise
+                Comprehensive range of manganese products serving diverse
+                industrial applications
               </p>
             </div>
           </div>
