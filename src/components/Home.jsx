@@ -336,8 +336,8 @@ const Home = () => {
               </div>
               <h3 className="stat-title">Product Portfolio</h3>
               <p className="stat-description">
-                Comprehensive range of manganese products serving diverse
-                industrial applications
+                Our comprehensive range of manganese products can be used across
+                more than ten industries worldwide
               </p>
             </div>
           </div>
