@@ -28,22 +28,17 @@ const ManganeseOxideFeedGrade = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Manganese is an essential micronutrient for animals, playing a
-            crucial role in various physiological functions. It serves as a
-            valuable source of manganese, a crucial trace element necessary for
-            the well-being of livestock and poultry. This feed-grade supplement
-            ensures that animals receive an optimal level of manganese to
-            support various physiological functions, including bone development,
-            enzyme activation, reproduction, and overall metabolic processes.
+            Manganese is an essential micronutrient for livestock and poultry,
+            supporting bone development, enzyme activation, and metabolic
+            processes. Our feed-grade supplement ensures optimal manganese
+            levels for animal well-being.
           </motion.p>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            Nevertheless, if the provided specifications do not align with the
-            customer's requirements, Mahavir Minerals is ready to customize the
-            product accordingly.
+            Custom specifications available upon request.
           </motion.p>
         </div>
       </div>

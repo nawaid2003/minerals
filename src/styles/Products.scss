@@ -63,6 +63,10 @@ $gray-800: #2d3748;
     color: $white;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
 
   .hero-subtitle {
@@ -70,11 +74,19 @@ $gray-800: #2d3748;
     color: rgba($white, 0.9);
     max-width: 600px;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
+    }
   }
 }
 
 .products-section {
   padding: 6rem 0;
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+  }
 
   .products-container {
     max-width: 80rem;
@@ -83,6 +95,10 @@ $gray-800: #2d3748;
     display: flex;
     flex-direction: column;
     gap: 6rem;
+
+    @media (max-width: 768px) {
+      gap: 4rem;
+    }
   }
 }
 
@@ -99,6 +115,7 @@ $gray-800: #2d3748;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 2rem;
+    padding: 1.5rem;
   }
 
   &.reverse {
@@ -150,6 +167,11 @@ $gray-800: #2d3748;
       @include glass-effect;
       padding: 1rem 2rem;
       border-radius: 30px;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+      }
     }
   }
 
@@ -170,6 +192,10 @@ $gray-800: #2d3748;
     margin-bottom: 1rem;
     position: relative;
 
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -187,6 +213,10 @@ $gray-800: #2d3748;
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 
   .learn-more-btn {
@@ -199,6 +229,11 @@ $gray-800: #2d3748;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
 
     .btn-arrow {
       transition: transform 0.3s ease;
@@ -225,7 +260,7 @@ $gray-800: #2d3748;
     right: 0;
     bottom: 0;
     background-image: url('../images/mnG.jpg');
-    background-size: 100%;
+    background-size: cover; // Changed from 100% to cover for better responsiveness
     background-position: center;
     filter: brightness(0.6);
     opacity: 1; // Changed from 0.2 to 1 for full visibility

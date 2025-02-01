@@ -15,12 +15,25 @@ const Sustainability = () => {
     }
   }, [isInView, controls]);
 
+  // In your animations, add a check for mobile devices
+  const isMobile = window.innerWidth <= 768;
+
   const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: isMobile ? 10 : 20 }, // Reduced movement on mobile
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: isMobile ? 0.4 : 0.6, ease: "easeOut" },
+    },
+  };
+
+  // Reduce scale animations on mobile
+  const scaleIn = {
+    hidden: { scale: isMobile ? 0.9 : 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: isMobile ? 0.3 : 0.5, ease: "easeOut" },
     },
   };
 
@@ -31,15 +44,6 @@ const Sustainability = () => {
       transition: {
         staggerChildren: 0.2,
       },
-    },
-  };
-
-  const scaleIn = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 

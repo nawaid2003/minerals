@@ -1,9 +1,20 @@
+// Variables
+$primary-color: #001f3f;
+$secondary-color: #001f3f;
+$white: #fff;
+$gray-300: #d1d5db;
+$gray-600: #4b5563;
+$cream-darker: #E6D5B8;
+$cream-dark: #E6CCB2;
+$cream-medium: #DBC1AC;
+$background-base: #c98d6f;
+
+// Hero Section
 .hero-section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
   .parallax-container {
     position: absolute;
     top: 0;
@@ -12,7 +23,7 @@
     height: 100%;
     z-index: 0;
   }
-  
+
   .parallax-image {
     position: absolute;
     top: 0;
@@ -24,30 +35,27 @@
     opacity: 0;
     transition: opacity 0.5s ease-in-out, right 0.8s ease-in-out;
     transform: scale(1.1);
-    
+
     &.active {
       opacity: 1;
       right: 0;
       animation: parallaxScale 5s ease-in-out infinite;
     }
-  
+
     &:not(.active) {
       right: 100%;
     }
   }
-  
+
   .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.3)
-    );
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
   }
-  
+
   .hero-container {
     position: relative;
     z-index: 1;
@@ -56,26 +64,238 @@
     align-items: center;
     justify-content: center;
     padding: 0 2rem;
+    text-align: center;
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: $white;
+    }
+
+    .hero-text {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: $white;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: $white;
+      color: $primary-color;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+    }
   }
-  
-  .hero-container {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+// About Section
+.about-section {
+  padding: 5rem 0;
+  background-color: $white;
+
+  .about-container {
+    max-width: 90rem;
+    margin: 0 auto;
     padding: 0 2rem;
+
+    .about-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-content {
+        .section-title {
+          font-size: 2.25rem;
+          font-weight: bold;
+          color: $primary-color;
+          margin-bottom: 1.5rem;
+        }
+
+        .about-text {
+          color: $gray-600;
+          margin-bottom: 1.5rem;
+          line-height: 1.7;
+        }
+
+        .learn-more-button {
+          background-color: $primary-color;
+          color: $white;
+          padding: 0.75rem 2rem;
+          border-radius: 0.5rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+            transform: translateY(-2px);
+          }
+        }
+      }
+
+      .about-image-container {
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
   }
-  
-  @keyframes parallaxScale {
-    0% {
-      transform: scale(1.1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1.1);
+}
+
+// Mobile Responsiveness
+@media (max-width: 768px) {
+  .hero-section {
+    height: 80vh;
+
+    .hero-container {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-text {
+        font-size: 1.25rem;
+      }
     }
   }
+
+  .about-section {
+    padding: 3rem 0;
+
+    .about-container {
+      .about-grid {
+        grid-template-columns: 1fr;
+
+        .about-content {
+          order: 2;
+        }
+
+        .about-image-container {
+          order: 1;
+        }
+      }
+    }
+  }
+}
+
+// Why Choose Us Section
+.highlights-section {
+  padding: 5rem 0;
+  background-color: #f9fafb;
+
+  .highlights-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    .highlights-title {
+      font-size: 2.25rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: $primary-color;
+    }
+
+    .stats-grid {
+      display: grid;
+      gap: 2rem;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .stat-card {
+        background-color: $white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-number {
+          font-size: 2.25rem;
+          font-weight: 600;
+          color: $primary-color;
+          margin-bottom: 1rem;
+          transition: color 0.3s ease;
+        }
+
+        .stat-title {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: $primary-color;
+        }
+
+        .stat-description {
+          font-size: 1rem;
+          color: $gray-600;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Responsiveness for Why Choose Us Section
+@media (max-width: 768px) {
+  .highlights-section {
+    padding: 3rem 0;
+
+    .highlights-container {
+      .highlights-title {
+        font-size: 1.875rem; // Reduce title size for mobile
+        margin-bottom: 2rem;
+      }
+
+      .stats-grid {
+        .stat-card {
+          padding: 1rem;
+
+          .stat-number {
+            font-size: 2rem; // Adjust number size for mobile
+          }
+
+          .stat-title {
+            font-size: 1.125rem; // Adjust title size for mobile
+          }
+
+          .stat-description {
+            font-size: 0.875rem; // Adjust description size for mobile
+          }
+        }
+      }
+    }
+  }
+}

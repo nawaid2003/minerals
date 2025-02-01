@@ -33,9 +33,8 @@ const itemVariants = {
 const Footer = () => {
   const address = "Paonarkhari - Tumsar, Bhandara District - 441912 India";
   const email = "mahavirminerals12@gmail.com";
-  const phone = "919834447544"; // Removed spaces for proper tel: link
+  const phone = "919834447544";
 
-  // Function to encode address for Google Maps
   const getGoogleMapsLink = () => {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
       address
@@ -65,7 +64,7 @@ const Footer = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
+          <motion.div className="footer-section" variants={itemVariants}>
             <motion.h4 className="footer-heading">Quick Links</motion.h4>
             <motion.div className="footer-links-list">
               {[
@@ -90,37 +89,39 @@ const Footer = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
+          <motion.div className="footer-section" variants={itemVariants}>
             <motion.h4 className="footer-heading">Connect With Us</motion.h4>
-            <motion.div className="social-links">
-              <motion.a
-                href="https://www.linkedin.com/company/mahavirminerals/"
-                className="social-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{
-                  scale: 1.2,
-                  rotate: [0, -10, 10, -10, 0],
-                }}
-              >
-                <LinkedinIcon size={24} />
-              </motion.a>
-              <motion.a
-                href={`https://wa.me/${phone}`}
-                className="social-link whatsapp-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{
-                  scale: 1.2,
-                  rotate: [0, -10, 10, -10, 0],
-                }}
-              >
-                <FontAwesomeIcon icon={faWhatsapp} size="xl" />
-              </motion.a>
+            <motion.div className="social-links-container">
+              <div className="social-links">
+                <motion.a
+                  href="https://www.linkedin.com/company/mahavirminerals/"
+                  className="social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.2,
+                    rotate: [0, -10, 10, -10, 0],
+                  }}
+                >
+                  <LinkedinIcon size={24} />
+                </motion.a>
+                <motion.a
+                  href={`https://wa.me/${phone}`}
+                  className="social-link whatsapp-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.2,
+                    rotate: [0, -10, 10, -10, 0],
+                  }}
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} size="xl" />
+                </motion.a>
+              </div>
             </motion.div>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
+          <motion.div className="footer-section" variants={itemVariants}>
             <motion.h4 className="footer-heading">Contact Info</motion.h4>
             <motion.div className="contact-info-container">
               <motion.a
@@ -133,7 +134,6 @@ const Footer = () => {
                 <MapPin className="contact-icon" />
                 <span className="contact-text">{address}</span>
               </motion.a>
-
               <motion.a
                 href={`mailto:${email}`}
                 className="contact-info-item"
@@ -142,7 +142,6 @@ const Footer = () => {
                 <Mail className="contact-icon" />
                 <span className="contact-text">{email}</span>
               </motion.a>
-
               <motion.a
                 href={`tel:${phone}`}
                 className="contact-info-item"

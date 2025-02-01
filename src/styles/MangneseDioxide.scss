@@ -1,55 +1,172 @@
 .manganese-dioxide {
-    .hero-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #001f3f;
-      color: #fff;
-      padding: 4rem 2rem;
+  // Variables
+  $primary-color: #001f3f;
+  $text-color: #4b5563;
+  $border-color: #ccc;
+  $table-hover: #f5f5f5;
   
-      img {
-        max-width: 400px;
-        margin-right: 2rem;
-      }
-  
-      .hero-content {
-        flex: 1;
-  
-        h1 {
-          font-size: 2.5rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
-  
-        p {
-          font-size: 1.25rem;
-        }
-      }
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    color: #fff;
+    padding: 4rem 2rem;
+    min-height: 120vh;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 3rem 1rem;
+      text-align: center;
     }
-  
-    .specifications-section {
-      padding: 4rem 2rem;
-  
-      h2 {
-        font-size: 2rem;
-        font-weight: 700;
+
+    img {
+      max-width: 400px;
+      margin-right: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin-top: 5rem;
+      
+      @media (max-width: 1024px) {
+        max-width: 300px;
+      }
+      
+      @media (max-width: 768px) {
+        max-width: 100%;
+        margin-right: 0;
         margin-bottom: 2rem;
       }
-  
-      .specifications-table {
-        width: 100%;
-        border-collapse: collapse;
-  
-        th, td {
-          padding: 1rem;
-          border-bottom: 1px solid #ccc;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        
+        @media (max-width: 768px) {
+          font-size: 2rem;
         }
-  
-        th {
-          text-align: left;
-          background-color: #001f3f;
-          color: #fff;
+      }
+
+      p {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
         }
       }
     }
   }
+
+  .specifications-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: $primary-color;
+      text-align: center;
+      
+      @media (max-width: 768px) {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .specifications-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      
+      @media (max-width: 768px) {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        
+        // Show scroll indicator on mobile
+        background: 
+          linear-gradient(to right, white 30%, rgba(255,255,255,0)),
+          linear-gradient(to right, rgba(255,255,255,0), white 70%) 100% 0,
+          radial-gradient(farthest-side at 0 50%, rgba(0,0,0,.2), rgba(0,0,0,0)),
+          radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 100% 0;
+        background-repeat: no-repeat;
+        background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+        background-attachment: local, local, scroll, scroll;
+      }
+
+      th, td {
+        padding: 1rem;
+        border-bottom: 1px solid $border-color;
+        
+        @media (max-width: 768px) {
+          white-space: nowrap;
+          padding: 0.875rem 1rem;
+        }
+      }
+
+      th {
+        text-align: left;
+        background-color: $primary-color;
+        color: #fff;
+        font-weight: 600;
+        
+        &:first-child {
+          border-top-left-radius: 8px;
+        }
+        
+        &:last-child {
+          border-top-right-radius: 8px;
+        }
+      }
+
+      tr {
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+        
+        &:hover {
+          td {
+            background-color: $table-hover;
+          }
+        }
+      }
+
+      td {
+        transition: background-color 0.2s ease;
+      }
+    }
+
+    // Add helper text for mobile users
+    &::after {
+      content: "Scroll horizontally to view more →";
+      display: none;
+      text-align: center;
+      color: $text-color;
+      font-size: 0.875rem;
+      margin-top: 1rem;
+      
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+  }
+}

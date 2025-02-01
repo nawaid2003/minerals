@@ -29,11 +29,10 @@ const ManganeseOreFines = () => {
           >
             Manganese ore fines refer to small particles or powdery material
             derived from manganese ore. These fines typically contain varying
-            concentrations of manganese and may be a byproduct of mining and ore
-            processing. Manganese ore fines are often utilized in metallurgical
-            processes for the production of alloys and other manganese-based
-            products. Mahavir Minerals can deliver ore fines with Mn content
-            ranging from 18% to 36%.
+            concentrations of manganese . Manganese ore fines are often utilized
+            in metallurgical processes for the production of alloys. Mahavir
+            Minerals can deliver ore fines with Mn content ranging from 18% to
+            36%.
           </motion.p>
         </div>
       </div>

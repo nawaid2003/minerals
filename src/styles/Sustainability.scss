@@ -37,12 +37,20 @@ $gray-600: #4b5563;
         font-weight: 800;
         letter-spacing: -0.02em;
         text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        @media (max-width: 768px) {
+          font-size: 2.5rem;
+        }
       }
 
       p {
         font-size: 1.5rem;
         color: rgba(255, 255, 255, 0.9);
         font-weight: 300;
+
+        @media (max-width: 768px) {
+          font-size: 1.125rem;
+        }
       }
     }
 
@@ -63,43 +71,29 @@ $gray-600: #4b5563;
     padding: 8rem 0;
     background-color: #fff;
     
+    @media (max-width: 768px) {
+      padding: 4rem 0;
+    }
+    
     .sustainability-container {
       max-width: 90rem;
       margin: 0 auto;
       padding: 0 2rem;
+
+      @media (max-width: 768px) {
+        padding: 0 1rem;
+      }
     }
 
     .sustainability-grid {
       display: grid;
       gap: 4rem;
       align-items: center;
+      grid-template-columns: 1fr 1fr;
       
-      @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .sustainability-image-container {
-      position: relative;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      
-      .image-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(45deg, rgba($primary-color, 0.2), rgba($secondary-color, 0.2));
-        z-index: 1;
-      }
-      
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-        transform: scale(1.01);
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
     }
 
@@ -109,7 +103,12 @@ $gray-600: #4b5563;
         color: $primary-color;
         font-size: 2.5rem;
         font-weight: 700;
-        text-align: center; // Center the title
+        text-align: center;
+
+        @media (max-width: 768px) {
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+        }
       }
 
       .sustainability-text {
@@ -117,7 +116,11 @@ $gray-600: #4b5563;
         margin-bottom: 1.5rem;
         line-height: 1.8;
         font-size: 1.125rem;
-        text-align: center; // Center the text
+        text-align: center;
+
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -126,11 +129,19 @@ $gray-600: #4b5563;
     padding: 8rem 0;
     background: linear-gradient(135deg, #f9fafb 0%, #fff 100%);
 
+    @media (max-width: 768px) {
+      padding: 4rem 0;
+    }
+
     .initiatives-container {
       max-width: 80rem;
       margin: 0 auto;
       padding: 0 2rem;
-      text-align: center; // Center the text in the container
+      text-align: center;
+
+      @media (max-width: 768px) {
+        padding: 0 1rem;
+      }
     }
 
     .initiatives-grid {
@@ -141,6 +152,8 @@ $gray-600: #4b5563;
 
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
       }
     }
 
@@ -151,6 +164,10 @@ $gray-600: #4b5563;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       position: relative;
       overflow: hidden;
+
+      @media (max-width: 768px) {
+        padding: 2rem 1.5rem;
+      }
 
       .card-decoration {
         position: absolute;
@@ -167,13 +184,17 @@ $gray-600: #4b5563;
         font-size: 1.5rem;
         font-weight: 600;
         position: relative;
-        text-align: center; // Center the title
+        text-align: center;
+
+        @media (max-width: 768px) {
+          font-size: 1.25rem;
+        }
       }
 
       p {
         color: $gray-600;
         line-height: 1.7;
-        text-align: center; // Center the text
+        text-align: center;
       }
     }
   }
@@ -182,19 +203,33 @@ $gray-600: #4b5563;
     padding: 8rem 0;
     background: linear-gradient(135deg, #f9fafb 0%, #fff 100%);
     
+    @media (max-width: 768px) {
+      padding: 4rem 0;
+    }
+    
     .commitment-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 2rem;
-      text-align: right ; // Align text to the left
-      margin-left: 20%; // Shift text to the right by 20%
+      text-align: right;
+      margin-left: 20%;
+
+      @media (max-width: 768px) {
+        padding: 0 1rem;
+        margin-left: 0;
+      }
     }
   
     .section-title {
       margin-bottom: 3rem;
       position: relative;
-      text-align: left; // Align text to the left
-      margin-left: 25%; // Shift text to the right by 20%
+      text-align: left;
+      margin-left: 25%;
+      
+      @media (max-width: 768px) {
+        margin-left: 0;
+        margin-bottom: 2rem;
+      }
       
       &::after {
         content: '';
@@ -220,8 +255,14 @@ $gray-600: #4b5563;
       background: white;
       border-radius: 1rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      text-align: left; // Align text to the left
-      margin-left: 20%; // Shift text to the right by 20%
+      text-align: left;
+      margin-left: 20%;
+
+      @media (max-width: 768px) {
+        font-size: 1.125rem;
+        padding: 1.5rem;
+        margin-left: 0;
+      }
   
       &::before,
       &::after {
