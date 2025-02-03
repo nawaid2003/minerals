@@ -13,7 +13,7 @@
     color: #fff;
     padding: 4rem 2rem;
     gap: 3rem; // Consistent gap between image and content
-    min-height: 130vh;
+    min-height: 150vh;
     
     @media (max-width: 768px) {
       flex-direction: column;
@@ -70,7 +70,7 @@
       }
 
       p {
-        font-size: 1.125rem; // Slightly smaller font
+        font-size: 1.3rem; // Slightly smaller font
         line-height: 1.5;
         opacity: 0.9;
         margin-bottom: 0.75rem;

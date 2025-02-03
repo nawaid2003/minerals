@@ -1,10 +1,68 @@
-// ManganeseOxideFeedGrade.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../styles/ManganeseOxideFeedGrade.scss";
 import FeedGrade from "../images/feedgrademno.png";
 
 const ManganeseOxideFeedGrade = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const MobileDescription = () => (
+    <motion.p
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+      className="mobile-description"
+    >
+      Manganese is a crucial trace element for livestock nutrition, supporting
+      bone development, enzyme activation, and metabolic processes. Custom
+      specifications available upon request.Manganese oxide feed grade is
+      carefully formulated to meet stringent quality standards for use in animal
+      nutrition, promoting the health and productivity of livestock and
+      contributing to the balanced diet essential for optimal animal husbandry.
+    </motion.p>
+  );
+
+  const DesktopDescription = () => (
+    <>
+      <motion.p
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="desktop-description"
+      >
+        Manganese is an essential micronutrient for animals, playing a crucial
+        role in various physiological functions. It serves as a valuable source
+        of manganese, a crucial trace element necessary for the well-being of
+        livestock and poultry. This feed-grade supplement ensures that animals
+        receive an optimal level of manganese to support various physiological
+        functions, including bone development, enzyme activation, reproduction,
+        and overall metabolic processes.
+      </motion.p>
+      <motion.p
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        className="desktop-description"
+      >
+        Manganese oxide feed grade is carefully formulated to meet stringent
+        quality standards for use in animal nutrition, promoting the health and
+        productivity of livestock and contributing to the balanced diet
+        essential for optimal animal husbandry. If the provided specifications
+        do not align with your specific requirements, Mahavir Minerals is ready
+        to customize the product accordingly.
+      </motion.p>
+    </>
+  );
+
   return (
     <div className="manganese-oxide-feed-grade">
       <div className="hero-section">
@@ -23,23 +81,7 @@ const ManganeseOxideFeedGrade = () => {
           >
             Manganese Oxide Feed Grade
           </motion.h1>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            Manganese is an essential micronutrient for livestock and poultry,
-            supporting bone development, enzyme activation, and metabolic
-            processes. Our feed-grade supplement ensures optimal manganese
-            levels for animal well-being.
-          </motion.p>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            Custom specifications available upon request.
-          </motion.p>
+          {isMobile ? <MobileDescription /> : <DesktopDescription />}
         </div>
       </div>
 
