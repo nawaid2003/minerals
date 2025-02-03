@@ -1,9 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../styles/MangneseDioxide.scss";
 import MnO2 from "../images/mndioxide.png";
 
 const MangneseDioxide = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const MobileDescription = () => (
+    <motion.p
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+      className="mobile-description"
+    >
+      Manganese Dioxide (MnO2) is a blackish or brown solid that occurs
+      naturally as the mineral pyrolusite. It is widely used, particularly as a
+      depolarizer in dry-cell batteries, due to its ability to facilitate
+      electrochemical reactions.
+    </motion.p>
+  );
+
+  const DesktopDescription = () => (
+    <>
+      <motion.p
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="desktop-description"
+      >
+        Manganese Dioxide (MnO2) is a blackish or brown solid that occurs
+        naturally as the mineral pyrolusite. It is widely used, particularly as
+        a depolarizer in dry-cell batteries, due to its ability to facilitate
+        electrochemical reactions. Additionally, it serves as a catalyst in
+        certain chemical processes and finds applications in pigments for
+        ceramics and glass. It is also utilized in water treatment plants where
+        granular MnO2 is employed to remove iron from water.
+      </motion.p>
+      <motion.p
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        className="desktop-description"
+      >
+        At Mahavir Minerals, we offer a range of grades tailored to customer
+        specifications, available in powder or granule sizes suited for specific
+        applications. We can deliver materials with manganese dioxide (MnO2)
+        content ranging from 60% to 90%.
+      </motion.p>
+    </>
+  );
+
   return (
     <div className="manganese-dioxide">
       <div className="hero-section">
@@ -22,16 +77,7 @@ const MangneseDioxide = () => {
           >
             Manganese Dioxide
           </motion.h1>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            Manganese Dioxide (MnO2) is a blackish or brown solid that occurs
-            naturally as the mineral pyrolusite. It is widely used, particularly
-            as a depolarizer in dry-cell batteries, due to its ability to
-            facilitate electrochemical reactions.
-          </motion.p>
+          {isMobile ? <MobileDescription /> : <DesktopDescription />}
         </div>
       </div>
 

@@ -1,9 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../styles/ManganeseOxidePowder.scss";
 import MnO from "../images/mn02.png";
 
 const ManganeseOxidePowder = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const MobileDescription = () => (
+    <motion.p
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+      className="mobile-description"
+    >
+      Manganese oxide, a chemical compound comprising manganese and oxygen,
+      finds versatile applications. As proud pioneers, our manufacturing
+      expertise covers a comprehensive range of grades and powder sizes
+      essential for various industries. These applications include use in
+      dry-cell batteries, plant nutrition, pesticides, ceramics, and glass
+      pigments.
+    </motion.p>
+  );
+
+  const DesktopDescription = () => (
+    <motion.p
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+      className="desktop-description"
+    >
+      Manganese oxide, a chemical compound comprising manganese and oxygen,
+      finds versatile applications. As proud pioneers, our manufacturing
+      expertise covers a comprehensive range of grades and powder sizes
+      essential for various industries. These applications include use in
+      dry-cell batteries, plant nutrition, pesticides, ceramics, and glass
+      pigments. Beyond industrial uses, manganese oxide compounds contribute to
+      geological processes and play a pivotal role in environmental redox
+      reactions within soils and sediments. Explore our extensive selection of
+      grades to meet the diverse needs of different sectors.
+    </motion.p>
+  );
+
   return (
     <div className="manganese-oxide-powder">
       <div className="hero-section">
@@ -22,19 +68,9 @@ const ManganeseOxidePowder = () => {
           >
             Manganese Oxide Powder
           </motion.h1>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            Manganese oxide, a chemical compound comprising manganese and
-            oxygen, finds versatile applications. As proud pioneers, our
-            manufacturing expertise covers a comprehensive range of grades and
-            powder sizes essential for various industries.
-          </motion.p>
+          {isMobile ? <MobileDescription /> : <DesktopDescription />}
         </div>
       </div>
-
       <div className="product-info-section">
         <h2>Product Information</h2>
         <div className="product-info-grid">

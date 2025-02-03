@@ -170,3 +170,28 @@
     }
   }
 }
+
+.mobile-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.desktop-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+// You can also add these media queries if you want more control
+@media (max-width: 768px) {
+  .mobile-description {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-description {
+    padding: 0 2rem;
+  }
+}
