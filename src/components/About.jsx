@@ -150,7 +150,7 @@ const About = () => {
               {[
                 { value: "30+", label: "Years Experience" },
                 { value: "1994", label: "Since Our Journey Began" },
-                { value: "10+", label: "Product Portfolio" },
+                { value: "10+", label: "Diverse Industrial Application" },
               ].map((stat, index) => (
                 <div key={index} className="achievement-card">
                   <div className="achievement-number" data-target={stat.value}>

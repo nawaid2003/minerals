@@ -322,7 +322,7 @@ const Home = () => {
               <div className="stat-number" data-target="10">
                 0+
               </div>
-              <h3 className="stat-title">Product Portfolio</h3>
+              <h3 className="stat-title">Diverse Industrial Application</h3>
               <p className="stat-description">
                 Our comprehensive range of manganese products can be used across
                 more than ten industries worldwide
