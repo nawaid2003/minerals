@@ -14,7 +14,7 @@ import "../styles/Products.scss";
 const products = [
   {
     id: 1,
-    title: "MANGANESE OXIDE POWDER",
+    title: "MANGANESE OXIDE POWDER (MnO)",
     description:
       "Industrial-grade compound powering diverse chemical processes and manufacturing applications",
     image: MnO,
@@ -23,9 +23,9 @@ const products = [
   },
   {
     id: 2,
-    title: "MANGANESE DIOXIDE",
+    title: "MANGANESE DIOXIDE (MnO₂)",
     description:
-      "Key raw material for producing essential manganese salts and chemical compounds",
+      "Manganese Dioxide (MnO₂) is a blackish or brown solid that occurs naturally as the mineral pyrolusite.",
     image: MnO2,
     order: "reverse",
     link: "/MangneseDioxide",

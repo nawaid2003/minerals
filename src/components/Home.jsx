@@ -112,12 +112,12 @@ const Home = () => {
 
   const productscase = [
     {
-      title: "Manganese Oxide Powder",
+      title: "Manganese Oxide Powder(MnO)",
       image: MnO,
       link: "/products#oxide-powder",
     },
     {
-      title: "Manganese Dioxide",
+      title: "Manganese Dioxide(MnO₂)",
       image: MnO2,
       link: "/products#dioxide",
     },
