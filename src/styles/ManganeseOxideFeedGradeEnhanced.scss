@@ -1,0 +1,464 @@
+.mnfg-container {
+  // Variables
+  $primary-color: #001f3f;
+  $secondary-color: #0074D9;
+  $accent-color: #3d9970;
+  $text-color: #4b5563;
+  $border-color: #e5e7eb;
+  $table-hover: #f8f9fa;
+  $light-bg: #f9f9f9;
+  $card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  
+  font-family: system-ui, -apple-system, sans-serif;
+  color: $text-color;
+  
+  .mnfg-hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-color;
+    color: #fff;
+    padding: 6rem 4rem;
+    gap: 4rem;
+    min-height: 60vh;
+    overflow: hidden;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+      gap: 2.5rem;
+    }
+    
+    .mnfg-hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      
+      .mnfg-shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+      }
+      
+      .mnfg-shape-1 {
+        background: linear-gradient(135deg, $secondary-color, $accent-color);
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        left: -100px;
+      }
+      
+      .mnfg-shape-2 {
+        background: linear-gradient(45deg, $accent-color, $secondary-color);
+        width: 300px;
+        height: 300px;
+        bottom: -50px;
+        right: -50px;
+      }
+      
+      .mnfg-shape-3 {
+        background: $secondary-color;
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        right: 20%;
+        transform: translateY(-50%);
+      }
+    }
+    
+    .mnfg-hero-image-container {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      
+      .mnfg-hero-image {
+        max-width: 420px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        
+        &:hover {
+          transform: translateY(-10px) scale(1.02);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        @media (max-width: 1024px) {
+          max-width: 350px;
+        }
+        
+        @media (max-width: 768px) {
+          max-width: 100%;
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+          margin-top: 1.5rem;
+          
+          &:hover {
+            transform: none;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+          }
+        }
+      }
+      
+      .mnfg-image-badge {
+        position: absolute;
+        top: 20px;
+        right: -10px;
+        background: $accent-color;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transform: rotate(5deg);
+        
+        @media (max-width: 768px) {
+          top: 10px;
+          right: 10px;
+          transform: none;
+          font-size: 0.75rem;
+          padding: 6px 12px;
+        }
+      }
+    }
+    
+    .mnfg-hero-content {
+      flex: 1;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+      
+      .mnfg-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        line-height: 1.1;
+        
+        .mnfg-title-highlight {
+          color: $accent-color;
+        }
+        
+        @media (max-width: 768px) {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+      
+      .mnfg-mobile-description {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        
+        @media (max-width: 768px) {
+          font-size: 1rem;
+          line-height: 1.5;
+          margin-bottom: 1.5rem;
+        }
+      }
+      
+      .mnfg-content-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        
+        .mnfg-icon {
+          flex-shrink: 0;
+          width: 40px;
+          height: 40px;
+          margin-right: 1rem;
+          color: $accent-color;
+          
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        
+        .mnfg-desktop-description {
+          font-size: 1.125rem;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+      
+      .mnfg-cta-container {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        
+        .mnfg-cta-button {
+          padding: 0.875rem 1.75rem;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: none;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+          }
+          
+          &:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
+          
+          &.mnfg-cta-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+          
+          &:not(.mnfg-cta-secondary) {
+            background-color: $accent-color;
+            color: white;
+            
+            &:hover {
+              background-color: darken($accent-color, 5%);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Desktop-only tabs
+  .mnfg-tabs-container {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    
+    @media (max-width: 768px) {
+      display: none;
+    }
+    
+    .mnfg-tabs {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      
+      .mnfg-tab {
+        padding: 1.25rem 2rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: $text-color;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          color: $secondary-color;
+        }
+        
+        &.active {
+          color: $primary-color;
+          border-bottom: 2px solid $primary-color;
+        }
+      }
+    }
+  }
+  
+  .mnfg-section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: $primary-color;
+    text-align: center;
+    position: relative;
+    
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: $accent-color;
+      margin: 0.75rem auto 0;
+      border-radius: 2px;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      
+      &::after {
+        width: 60px;
+        height: 3px;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  
+  .mnfg-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: $card-shadow;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    
+    @media (max-width: 768px) {
+      border-radius: 8px;
+    }
+  }
+  
+  .mnfg-characteristics-section,
+  .mnfg-specifications-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+      padding: 3rem 1rem;
+    }
+    
+    &.mnfg-hidden {
+      display: none;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      @media (max-width: 768px) {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  }
+  
+  .mnfg-characteristics-table {
+    td {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid $border-color;
+      transition: background-color 0.2s ease;
+      
+      @media (max-width: 768px) {
+        padding: 1rem 1.25rem;
+      }
+      
+      &:first-child {
+        font-weight: 600;
+        background-color: rgba($primary-color, 0.05);
+        width: 200px;
+        color: $primary-color;
+        
+        @media (max-width: 768px) {
+          width: 140px;
+        }
+      }
+    }
+    
+    tr {
+      &:last-child td {
+        border-bottom: none;
+      }
+      
+      &:hover td {
+        background-color: rgba($accent-color, 0.05);
+      }
+    }
+  }
+  
+  .mnfg-specifications-table {
+    th {
+      text-align: left;
+      background-color: $primary-color;
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      
+      @media (max-width: 768px) {
+        padding: 1rem 1.25rem;
+        white-space: nowrap;
+      }
+    }
+    
+    td {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid $border-color;
+      transition: background-color 0.2s ease;
+      
+      @media (max-width: 768px) {
+        padding: 1rem 1.25rem;
+        white-space: nowrap;
+      }
+      
+      &:first-child {
+        width: 80px;
+        font-weight: 600;
+        color: $primary-color;
+        
+        @media (max-width: 768px) {
+          width: 60px;
+        }
+      }
+      
+      &:nth-child(2) {
+        font-weight: 500;
+        color: $secondary-color;
+      }
+    }
+    
+    tr {
+      &:nth-child(even) {
+        background-color: rgba($primary-color, 0.02);
+      }
+      
+      &:last-child td {
+        border-bottom: none;
+      }
+      
+      &:hover td {
+        background-color: rgba($accent-color, 0.05);
+      }
+    }
+  }
+  
+  // Add helper text for mobile users
+  .mnfg-specifications-section,
+  .mnfg-characteristics-section {
+    position: relative;
+    
+    &::after {
+      content: "Scroll horizontally to view more →";
+      display: none;
+      text-align: center;
+      color: $text-color;
+      font-size: 0.875rem;
+      margin-top: 1rem;
+      
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+  }
+}
