@@ -175,7 +175,6 @@ const ManganeseOxideFeedGradeEnhanced = () => {
             alt="Manganese Oxide Feed Grade"
             className="mnfg-hero-image"
           />
-          <div className="mnfg-image-badge">Premium Grade</div>
         </motion.div>
         <div className="mnfg-hero-content">
           <motion.h1
