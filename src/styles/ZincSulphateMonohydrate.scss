@@ -1,0 +1,235 @@
+.zinc-sulphate-monohydrate {
+  // Variables
+  $primary-color: #2563eb;
+  $secondary-color: #1e40af;
+  $text-color: #4b5563;
+  $bg-light: #f8fafc;
+  $accent-color: #3b82f6;
+  $shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+    color: #fff;
+    padding: 4rem 2rem;
+    min-height: 120vh;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    img {
+      max-width: 400px;
+      margin-right: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      margin-top: 5rem;
+      
+      @media (max-width: 1024px) {
+        max-width: 300px;
+      }
+      
+      @media (max-width: 768px) {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+        
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+
+      .chemical-formula {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #93c5fd;
+        margin-bottom: 1rem;
+        
+        @media (max-width: 768px) {
+          font-size: 1.25rem;
+        }
+      }
+
+      p {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .product-info-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: $primary-color;
+      
+      @media (max-width: 768px) {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .product-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+      
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .product-info-item {
+        background-color: $bg-light;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: $shadow;
+        transition: all 0.3s ease;
+        border-left: 4px solid $accent-color;
+        
+        @media (max-width: 768px) {
+          padding: 1.5rem;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: $primary-color;
+          margin-bottom: 0.5rem;
+          
+          @media (max-width: 768px) {
+            font-size: 1.1rem;
+          }
+        }
+
+        p {
+          margin: 0;
+          line-height: 1.6;
+          color: $text-color;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .applications-section {
+      margin-bottom: 3rem;
+
+      .applications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+
+        .application-item {
+          background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: $shadow;
+          transition: all 0.3s ease;
+          
+          @media (max-width: 768px) {
+            padding: 1.5rem;
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.12);
+          }
+
+          h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: $primary-color;
+            margin-bottom: 1rem;
+          }
+
+          p {
+            color: $text-color;
+            line-height: 1.6;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    > p {
+      margin-top: 2rem;
+      color: $text-color;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      
+      @media (max-width: 768px) {
+        margin-top: 1.5rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+.mobile-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.desktop-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .mobile-description {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-description {
+    padding: 0 2rem;
+  }
+}

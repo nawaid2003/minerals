@@ -15,12 +15,14 @@ import ManganeseOxideFeedGrade from "./components/ManganeseOxideFeedGrade";
 import ManganeseOxidePowder from "./components/ManganeseOxidePowder";
 import MangneseDioxide from "./components/MangneseDioxide";
 import MnO2FilterMedia from "./components/MnO2FilterMedia";
+import ManganeseSulphateMonohydrate from "./components/ManganeseSulphateMonohydrate";
+import ZincSulphateMonohydrate from "./components/ZincSulphateMonohydrate";
 import "./styles/styles.scss";
 
 const App = () => {
   return (
     <Router>
-      <div className="app">
+      <>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,9 +44,17 @@ const App = () => {
           />
           <Route path="/MangneseDioxide" element={<MangneseDioxide />} />
           <Route path="/MnO2FilterMedia" element={<MnO2FilterMedia />} />
+          <Route
+            path="/ManganeseSulphateMonohydrate"
+            element={<ManganeseSulphateMonohydrate />}
+          />
+          <Route
+            path="/ZincSulphateMonohydrate"
+            element={<ZincSulphateMonohydrate />}
+          />
         </Routes>
         <Footer />
-      </div>
+      </>
     </Router>
   );
 };

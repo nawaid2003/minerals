@@ -6,6 +6,8 @@ import FeedGrade from "../images/feedgrademno.png";
 import Facility from "../images/m1.jpg";
 import Ore from "../images/MnOre.png";
 import Media from "../images/MediaMn.png";
+import ZnSO4 from "../images/znso4.png";
+import MnSO4 from "../images/mnso4.png";
 import m1 from "../images/m1.jpg";
 import m2 from "../images/m2.jpg";
 import m3 from "../images/m3.jpg";
@@ -125,6 +127,16 @@ const Home = () => {
       title: "Manganese Oxide Feed Grade",
       image: FeedGrade,
       link: "/products#feed-grade",
+    },
+    {
+      title: "Zinc Sulphate Monohydrate",
+      image: ZnSO4,
+      link: "/ZincSulphateMonohydrate",
+    },
+    {
+      title: "Manganese Sulphate Monohydrate",
+      image: MnSO4,
+      link: "/ManganeseSulphateMonohydrate",
     },
     {
       title: "MANGANESE ORE FINES",
@@ -325,7 +337,7 @@ const Home = () => {
               <h3 className="stat-title">Diverse Industrial Application</h3>
               <p className="stat-description">
                 Our comprehensive range of manganese products can be used across
-                more than ten industries worldwide
+                more than ten industries worldwide
               </p>
             </div>
           </div>

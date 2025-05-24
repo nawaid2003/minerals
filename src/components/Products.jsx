@@ -8,6 +8,8 @@ import MnO2 from "../images/mndioxide.png";
 import FeedGrade from "../images/feedgrademno.png";
 import Ore from "../images/MnOre.png";
 import Media from "../images/MediaMn.png";
+import ZnSO4 from "../images/znso4.png";
+import MnSO4 from "../images/mnso4.png";
 import Mg from "../images/mnG.jpg";
 import "../styles/Products.scss";
 
@@ -41,6 +43,24 @@ const products = [
   },
   {
     id: 4,
+    title: "ZINC SULPHATE MONOHYDRATE (ZnSO₄·H₂O)",
+    description:
+      "White crystalline powder widely used as a zinc supplement in agriculture and animal feed for enhanced growth and metabolism",
+    image: ZnSO4,
+    order: "reverse",
+    link: "/ZincSulphateMonohydrate",
+  },
+  {
+    id: 5,
+    title: "MANGANESE SULPHATE MONOHYDRATE (MnSO₄·H₂O)",
+    description:
+      "Pale pink crystalline powder serving as a rich source of manganese for agricultural applications and industrial processing",
+    image: MnSO4,
+    order: "normal",
+    link: "/ManganeseSulphateMonohydrate",
+  },
+  {
+    id: 6,
     title: "MANGANESE ORE FINES",
     description:
       "Core mineral resource driving steel manufacturing and metallurgical processes",
@@ -49,7 +69,7 @@ const products = [
     link: "/ManganeseOreFines",
   },
   {
-    id: 5,
+    id: 7,
     title: "FILTER MEDIA MnO₂",
     description:
       "Advanced filtration material ensuring efficient water purification and treatment solutions",
@@ -181,7 +201,7 @@ const Products = () => {
       <Header />
 
       <motion.div
-        className="hero-section products-hero" // Add products-hero class here
+        className="hero-section products-hero"
         variants={heroVariants}
         initial="hidden"
         animate="visible"
